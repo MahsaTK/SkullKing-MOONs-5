@@ -1,6 +1,7 @@
+#ifndef card_h
+#define card_h
 #include <iostream>
 using namespace std;
-
 enum cardType
 {
     Treasure = 1,
@@ -24,3 +25,5 @@ public:
     }
     virtual bool operator>(Card& card) = 0;
 };
+Card* mainCards[42];
+#endif 
