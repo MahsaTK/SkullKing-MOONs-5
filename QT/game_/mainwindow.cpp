@@ -39,16 +39,7 @@ MainWindow::MainWindow(QWidget *parent)
 
   MainWindow::~MainWindow()
 {
-    delete loginUserEdit;
-    delete loginPassEdit;
-    delete loginUserLabel;
-    delete loginPassLabel;
-    delete signUpUserEdit;
-    delete signUpPassEdit;
-    delete signUpUserLabel;
-    delete signUpPassLabel;
-    delete loginMainForm;
-    delete signUpMainForm;
+
 }
 
 void MainWindow::on_pushButton_clicked()
@@ -151,22 +142,23 @@ void MainWindow::on_signUpOk_clicked()
  }
 
 void MainWindow:: loginAndSignup(){
-    delete signUpMainForm;
-    delete signUpUserEdit;
-    delete signUpPassEdit;
-    delete signUpPassLabel;
-    delete signUpUserLabel;
-    QWidget *widget = new QWidget();
-    widget->setWindowTitle("Skull King");
-    MainForm=new QFormLayout();
 
-    //this->ui->pushButton->show();
-    // this->ui->pushButton_2->show();
-   // this->ui->signUpOk->hide();
-   // MainForm->addRow(ui->pushButton);
-   // MainForm->addRow(ui->pushButton_2);
-   //widget->setLayout(MainForm);
-   //this->setCentralWidget(widget);  QWidget *widget = new QWidget();
+      delete signUpUserEdit;
+      delete signUpPassEdit;
+      delete signUpUserLabel;
+      delete signUpPassLabel;
+      delete signUpMainForm;
+      delete signUpNameEdit;
+      delete signUpLast_nameEdit;
+      delete signUpPhone_numberEdit;
+      delete signUpEmailEdit;
+      delete signUpAddressEdit;
+      delete signUpNameLabel;
+      delete signUpLast_nameLabel;
+      delete signUpPhone_numberLabel;
+      delete signUpEmailLabel;
+      delete signUpAddressLabel;
+      delete MainForm;
 
 }
 

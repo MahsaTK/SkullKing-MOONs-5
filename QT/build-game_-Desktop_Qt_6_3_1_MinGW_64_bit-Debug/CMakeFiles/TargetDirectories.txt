@@ -1,0 +1,5 @@
+C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/build-game_-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/build-game_-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/CMakeFiles/game_.dir
+C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/build-game_-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/build-game_-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/CMakeFiles/game__autogen_timestamp_deps.dir
+C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/build-game_-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/CMakeFiles/game__autogen.dir
