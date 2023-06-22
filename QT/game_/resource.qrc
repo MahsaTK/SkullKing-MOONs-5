@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>img/آرم بازی.png</file>
+        <file>img/نام بازی.png</file>
+        <file>img/پادشاه جمجمه.png</file>
+        <file>img/پرچم دزد دریایی.png</file>
+        <file>img/دزد دریایی.png</file>
+        <file>img/زمین بازی.png</file>
+        <file>img/طوطی.png</file>
+        <file>img/قاب دور کارت .png</file>
+        <file>img/گنج.png</file>
+        <file>img/ملکه.png</file>
+        <file>img/نشان جمجمه.png</file>
+        <file>img/نقشه .png</file>
+        <file>img/background.png</file>
+        <file>img/png-transparent-jolly-roger-ching-shih-piracy-flag-pirate-hd-logo-ocean-silk.png</file>
+        <file>img/flag_0001a.jpg</file>
+    </qresource>
+</RCC>
