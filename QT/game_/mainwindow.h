@@ -10,7 +10,7 @@
 #include <QHBoxLayout>
 #include <QFormLayout>
 #include <QList>
-#include "startthegame.h"
+#include "MainMenu.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE

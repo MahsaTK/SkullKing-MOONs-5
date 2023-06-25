@@ -27,9 +27,9 @@ set(PROJECT_SOURCES
     Player.h
     ScoreBoard.h
     functions.h
-    startthegame.h
-    startthegame.cpp
-    startthegame.ui
+    MainMenu.h
+    MainMenu.cpp
+    MainMenu.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

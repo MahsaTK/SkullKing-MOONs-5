@@ -286,6 +286,12 @@
 			null
 		],
 		[
+			"C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/game_/MainMenu.h",
+			"MU",
+			"EWIEGA46WW/moc_MainMenu.cpp",
+			null
+		],
+		[
 			"C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/game_/NumberedCard.h",
 			"MU",
 			"EWIEGA46WW/moc_NumberedCard.cpp",
@@ -313,12 +319,6 @@
 			"C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/game_/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
-			null
-		],
-		[
-			"C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/game_/startthegame.h",
-			"MU",
-			"EWIEGA46WW/moc_startthegame.cpp",
 			null
 		]
 	],
@@ -394,17 +394,17 @@
 	"SOURCES" : 
 	[
 		[
+			"C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/game_/MainMenu.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/game_/main.cpp",
 			"MU",
 			null
 		],
 		[
 			"C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/game_/mainwindow.cpp",
-			"MU",
-			null
-		],
-		[
-			"C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/game_/startthegame.cpp",
 			"MU",
 			null
 		]

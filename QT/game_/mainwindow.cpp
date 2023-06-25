@@ -48,7 +48,7 @@ void MainWindow::on_pushButton_clicked()
 
 }
 void MainWindow::start_game(Player player){
-    StartTheGame *game=new StartTheGame(player);
+    MainMenu *game=new MainMenu(player);
     game->show();
     this->close();
 }

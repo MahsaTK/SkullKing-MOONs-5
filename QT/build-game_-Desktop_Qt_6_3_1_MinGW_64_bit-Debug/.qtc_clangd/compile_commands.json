@@ -9,7 +9,7 @@
         "-I",
         "C:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\pouyaandish\\AppData\\Local\\Temp\\QtCreator-tlHEDh\\clang-uiheader-znkXWi",
+        "C:\\Users\\pouyaandish\\AppData\\Local\\Temp\\QtCreator-XaXkSE\\clang-uiheader-DQcwVV",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -81,7 +81,7 @@
         "-I",
         "C:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\pouyaandish\\AppData\\Local\\Temp\\QtCreator-tlHEDh\\clang-uiheader-znkXWi",
+        "C:\\Users\\pouyaandish\\AppData\\Local\\Temp\\QtCreator-XaXkSE\\clang-uiheader-DQcwVV",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -153,7 +153,7 @@
         "-I",
         "C:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\pouyaandish\\AppData\\Local\\Temp\\QtCreator-tlHEDh\\clang-uiheader-znkXWi",
+        "C:\\Users\\pouyaandish\\AppData\\Local\\Temp\\QtCreator-XaXkSE\\clang-uiheader-DQcwVV",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -210,10 +210,10 @@
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
         "-fno-delayed-template-parsing",
-        "C:\\Users\\pouyaandish\\Desktop\\mahsa git\\Skull-king\\QT\\game_\\startthegame.cpp"
+        "C:\\Users\\pouyaandish\\Desktop\\mahsa git\\Skull-king\\QT\\game_\\MainMenu.cpp"
     ],
     "directory": "C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/build-game_-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/game_/startthegame.cpp"
+    "file": "C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/game_/MainMenu.cpp"
 },
 {
     "arguments": [
@@ -225,7 +225,7 @@
         "-I",
         "C:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\pouyaandish\\AppData\\Local\\Temp\\QtCreator-tlHEDh\\clang-uiheader-znkXWi",
+        "C:\\Users\\pouyaandish\\AppData\\Local\\Temp\\QtCreator-XaXkSE\\clang-uiheader-DQcwVV",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -297,7 +297,7 @@
         "-I",
         "C:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\pouyaandish\\AppData\\Local\\Temp\\QtCreator-tlHEDh\\clang-uiheader-znkXWi",
+        "C:\\Users\\pouyaandish\\AppData\\Local\\Temp\\QtCreator-XaXkSE\\clang-uiheader-DQcwVV",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -369,7 +369,7 @@
         "-I",
         "C:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\pouyaandish\\AppData\\Local\\Temp\\QtCreator-tlHEDh\\clang-uiheader-znkXWi",
+        "C:\\Users\\pouyaandish\\AppData\\Local\\Temp\\QtCreator-XaXkSE\\clang-uiheader-DQcwVV",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -441,7 +441,7 @@
         "-I",
         "C:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\pouyaandish\\AppData\\Local\\Temp\\QtCreator-tlHEDh\\clang-uiheader-znkXWi",
+        "C:\\Users\\pouyaandish\\AppData\\Local\\Temp\\QtCreator-XaXkSE\\clang-uiheader-DQcwVV",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -513,7 +513,7 @@
         "-I",
         "C:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\pouyaandish\\AppData\\Local\\Temp\\QtCreator-tlHEDh\\clang-uiheader-znkXWi",
+        "C:\\Users\\pouyaandish\\AppData\\Local\\Temp\\QtCreator-XaXkSE\\clang-uiheader-DQcwVV",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -585,7 +585,7 @@
         "-I",
         "C:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\pouyaandish\\AppData\\Local\\Temp\\QtCreator-tlHEDh\\clang-uiheader-znkXWi",
+        "C:\\Users\\pouyaandish\\AppData\\Local\\Temp\\QtCreator-XaXkSE\\clang-uiheader-DQcwVV",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -657,7 +657,7 @@
         "-I",
         "C:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\pouyaandish\\AppData\\Local\\Temp\\QtCreator-tlHEDh\\clang-uiheader-znkXWi",
+        "C:\\Users\\pouyaandish\\AppData\\Local\\Temp\\QtCreator-XaXkSE\\clang-uiheader-DQcwVV",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -729,7 +729,7 @@
         "-I",
         "C:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\pouyaandish\\AppData\\Local\\Temp\\QtCreator-tlHEDh\\clang-uiheader-znkXWi",
+        "C:\\Users\\pouyaandish\\AppData\\Local\\Temp\\QtCreator-XaXkSE\\clang-uiheader-DQcwVV",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -801,7 +801,7 @@
         "-I",
         "C:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\pouyaandish\\AppData\\Local\\Temp\\QtCreator-tlHEDh\\clang-uiheader-znkXWi",
+        "C:\\Users\\pouyaandish\\AppData\\Local\\Temp\\QtCreator-XaXkSE\\clang-uiheader-DQcwVV",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -858,9 +858,9 @@
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
         "-fno-delayed-template-parsing",
-        "C:\\Users\\pouyaandish\\Desktop\\mahsa git\\Skull-king\\QT\\game_\\startthegame.h"
+        "C:\\Users\\pouyaandish\\Desktop\\mahsa git\\Skull-king\\QT\\game_\\MainMenu.h"
     ],
     "directory": "C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/build-game_-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/game_/startthegame.h"
+    "file": "C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/game_/MainMenu.h"
 }
 ]

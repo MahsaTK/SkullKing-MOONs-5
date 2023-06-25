@@ -21,22 +21,22 @@
 QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
-struct qt_meta_stringdata_StartTheGame_t {
+struct qt_meta_stringdata_MainMenu_t {
     const uint offsetsAndSize[2];
-    char stringdata0[13];
+    char stringdata0[9];
 };
 #define QT_MOC_LITERAL(ofs, len) \
-    uint(offsetof(qt_meta_stringdata_StartTheGame_t, stringdata0) + ofs), len 
-static const qt_meta_stringdata_StartTheGame_t qt_meta_stringdata_StartTheGame = {
+    uint(offsetof(qt_meta_stringdata_MainMenu_t, stringdata0) + ofs), len 
+static const qt_meta_stringdata_MainMenu_t qt_meta_stringdata_MainMenu = {
     {
-QT_MOC_LITERAL(0, 12) // "StartTheGame"
+QT_MOC_LITERAL(0, 8) // "MainMenu"
 
     },
-    "StartTheGame"
+    "MainMenu"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_StartTheGame[] = {
+static const uint qt_meta_data_MainMenu[] = {
 
  // content:
       10,       // revision
@@ -52,7 +52,7 @@ static const uint qt_meta_data_StartTheGame[] = {
        0        // eod
 };
 
-void StartTheGame::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void MainMenu::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     (void)_o;
     (void)_id;
@@ -60,14 +60,14 @@ void StartTheGame::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
     (void)_a;
 }
 
-const QMetaObject StartTheGame::staticMetaObject = { {
+const QMetaObject MainMenu::staticMetaObject = { {
     QMetaObject::SuperData::link<QMainWindow::staticMetaObject>(),
-    qt_meta_stringdata_StartTheGame.offsetsAndSize,
-    qt_meta_data_StartTheGame,
+    qt_meta_stringdata_MainMenu.offsetsAndSize,
+    qt_meta_data_MainMenu,
     qt_static_metacall,
     nullptr,
-qt_incomplete_metaTypeArray<qt_meta_stringdata_StartTheGame_t
-, QtPrivate::TypeAndForceComplete<StartTheGame, std::true_type>
+qt_incomplete_metaTypeArray<qt_meta_stringdata_MainMenu_t
+, QtPrivate::TypeAndForceComplete<MainMenu, std::true_type>
 
 
 
@@ -76,20 +76,20 @@ qt_incomplete_metaTypeArray<qt_meta_stringdata_StartTheGame_t
 } };
 
 
-const QMetaObject *StartTheGame::metaObject() const
+const QMetaObject *MainMenu::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *StartTheGame::qt_metacast(const char *_clname)
+void *MainMenu::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_StartTheGame.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_MainMenu.stringdata0))
         return static_cast<void*>(this);
     return QMainWindow::qt_metacast(_clname);
 }
 
-int StartTheGame::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int MainMenu::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QMainWindow::qt_metacall(_c, _id, _a);
     return _id;

@@ -363,6 +363,6 @@ C:/Users/pouyaandish/Desktop/mahsa\ git/Skull-king/QT/build-game_-Desktop_Qt_6_3
   C:/Users/pouyaandish/Desktop/mahsa\ git/Skull-king/QT/game_/Card.h \
   C:/Users/pouyaandish/Desktop/mahsa\ git/Skull-king/QT/game_/CharacterCard.h \
   C:/Users/pouyaandish/Desktop/mahsa\ git/Skull-king/QT/game_/GameInfo.h \
+  C:/Users/pouyaandish/Desktop/mahsa\ git/Skull-king/QT/game_/MainMenu.h \
   C:/Users/pouyaandish/Desktop/mahsa\ git/Skull-king/QT/game_/NumberedCard.h \
-  C:/Users/pouyaandish/Desktop/mahsa\ git/Skull-king/QT/game_/Player.h \
-  C:/Users/pouyaandish/Desktop/mahsa\ git/Skull-king/QT/game_/startthegame.h
+  C:/Users/pouyaandish/Desktop/mahsa\ git/Skull-king/QT/game_/Player.h
