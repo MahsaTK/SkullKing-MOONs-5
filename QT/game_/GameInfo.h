@@ -1,6 +1,13 @@
 #include <iostream>
 using namespace std;
 
+
+//copy constructor
+
+
+
+
+
 class GameInfo
 {
 protected:

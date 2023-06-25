@@ -15,18 +15,21 @@ find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
-       resource.qrc
-        main.cpp
-        mainwindow.cpp
-        mainwindow.h
-        mainwindow.ui
-        Card.h
-        CharacterCard.h
-        GameInfo.h
-        NumberedCard.h
-        Player.h
-        ScoreBoard.h
-        functions.h
+    resource.qrc
+    main.cpp
+    mainwindow.cpp
+    mainwindow.h
+    mainwindow.ui
+    Card.h
+    CharacterCard.h
+    GameInfo.h
+    NumberedCard.h
+    Player.h
+    ScoreBoard.h
+    functions.h
+    startthegame.h
+    startthegame.cpp
+    startthegame.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -43,13 +46,13 @@ else()
         add_library(game_ SHARED
             ${PROJECT_SOURCES}
         )
-# Define properties for Android with Qt 5 after find_package() calls as:
-#    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
-    else()
-        add_executable(game_
-            ${PROJECT_SOURCES}
-        )
-    endif()
+    # Define properties for Android with Qt 5 after find_package() calls as:
+    #    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
+else()
+    add_executable(game_
+        ${PROJECT_SOURCES}
+    )
+endif()
 endif()
 
 target_link_libraries(game_ PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)

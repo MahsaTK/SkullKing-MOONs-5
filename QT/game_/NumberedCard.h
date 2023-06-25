@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Card.h"
+#include "CharacterCard.h"
 using namespace std;
 
 class NumberedCard : public Card

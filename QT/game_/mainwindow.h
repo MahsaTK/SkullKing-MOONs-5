@@ -9,8 +9,8 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QFormLayout>
-#include "Player.h"
-
+#include <QList>
+#include "startthegame.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -24,7 +24,9 @@ public:
     ~MainWindow();
     void login();
     void signUp();
-    void  loginAndSignup();
+    void  DELSignup();
+    void start_game(Player);
+    void DELLogin();
 private slots:
     void on_pushButton_clicked();
     void on_pushButton_2_clicked();
@@ -56,18 +58,12 @@ private:
     QLabel *signUpAddressLabel;
     GameInfo last_game;
     GameInfo current_game;
-    QFormLayout * MainForm;
     int won;
     int lost;
     int coins;
 };
 
-//class SignUpWindow : public MainWindow{
-//private:
-//    QPushButton * signUpOK;
-//public:
-//    SignUpWindow(int);
-//};
+
 
 
 

@@ -8,9 +8,9 @@
 #include <QHBoxLayout>
 #include <QMessageBox>
 #include <QFormLayout>
-#include <QList>
-vector<Player> players;
+#include <functions.h>
 
+vector<Player> players;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -37,7 +37,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 }
 
-  MainWindow::~MainWindow()
+MainWindow::~MainWindow()
 {
 
 }
@@ -47,7 +47,11 @@ void MainWindow::on_pushButton_clicked()
     login();
 
 }
-
+void MainWindow::start_game(Player player){
+    StartTheGame *game=new StartTheGame(player);
+    game->show();
+    this->close();
+}
 void MainWindow::on_pushButton_2_clicked()
 {
     signUp();
@@ -55,11 +59,11 @@ void MainWindow::on_pushButton_2_clicked()
 
 void MainWindow ::login(){
     if(ui->pushButton->isVisible()==true){
-    ui->pushButton->hide();
-    ui->pushButton_2->hide();}
+        ui->pushButton->hide();
+        ui->pushButton_2->hide();}
     if(ui->signUpOk->isVisible()==true){
         ui->signUpOk->hide();
-   }
+    }
     QWidget::setWindowTitle("Login");
     loginMainForm=new QFormLayout();
     loginUserEdit=new QLineEdit();
@@ -83,11 +87,11 @@ void MainWindow ::login(){
 
 void MainWindow ::signUp(){
     if(ui->pushButton->isVisible()==true){
-    ui->pushButton->hide();
-    ui->pushButton_2->hide();}
+        ui->pushButton->hide();
+        ui->pushButton_2->hide();}
     if(ui->loginOk->isVisible()==true){
-    ui->loginOk->hide();
-    ui->forgotPassword->hide();}
+        ui->loginOk->hide();
+        ui->forgotPassword->hide();}
     QWidget::setWindowTitle("Sign Up");
     signUpMainForm=new QFormLayout();
     signUpUserEdit=new QLineEdit();
@@ -123,51 +127,72 @@ void MainWindow ::signUp(){
 void MainWindow::on_signUpOk_clicked()
 {
     if(signUpUserEdit->text().isEmpty()||signUpAddressEdit->text().isEmpty()||
-           signUpEmailEdit->text().isEmpty()||signUpPhone_numberEdit->text().isEmpty()||
+            signUpEmailEdit->text().isEmpty()||signUpPhone_numberEdit->text().isEmpty()||
             signUpLast_nameEdit->text().isEmpty()||signUpPassEdit->text().isEmpty()||signUpNameEdit->text().isEmpty()){
-      QMessageBox::information(this,tr("Sign up"),tr("Please fill the form!"));
+        QMessageBox::information(this,tr("Sign up"),tr("Please fill the form!"));
     }
     else{
-  Player newPlayer;
- newPlayer.set_username(signUpUserEdit->text().toStdString());
- newPlayer.set_address(signUpAddressEdit->text().toStdString());
- newPlayer.set_email(signUpEmailEdit->text().toStdString());
- newPlayer.set_last_name(signUpLast_nameEdit->text().toStdString());
- newPlayer.set_phone_number(signUpPhone_numberEdit->text().toStdString());
- newPlayer.set_password(signUpPassEdit->text().toStdString());
- newPlayer.set_name(signUpNameEdit->text().toStdString());
- players.push_back(newPlayer);
- loginAndSignup();
+        Player newPlayer;
+        newPlayer.set_username(signUpUserEdit->text().toStdString());
+        newPlayer.set_address(signUpAddressEdit->text().toStdString());
+        newPlayer.set_email(signUpEmailEdit->text().toStdString());
+        newPlayer.set_last_name(signUpLast_nameEdit->text().toStdString());
+        newPlayer.set_phone_number(signUpPhone_numberEdit->text().toStdString());
+        newPlayer.set_password(signUpPassEdit->text().toStdString());
+        newPlayer.set_name(signUpNameEdit->text().toStdString());
+        players.push_back(newPlayer);
+        start_game(newPlayer);
+        WRITE_FILE(players);
+        DELSignup();
+        this->close();
     }
- }
-
-void MainWindow:: loginAndSignup(){
-
-      delete signUpUserEdit;
-      delete signUpPassEdit;
-      delete signUpUserLabel;
-      delete signUpPassLabel;
-      delete signUpMainForm;
-      delete signUpNameEdit;
-      delete signUpLast_nameEdit;
-      delete signUpPhone_numberEdit;
-      delete signUpEmailEdit;
-      delete signUpAddressEdit;
-      delete signUpNameLabel;
-      delete signUpLast_nameLabel;
-      delete signUpPhone_numberLabel;
-      delete signUpEmailLabel;
-      delete signUpAddressLabel;
-      delete MainForm;
-
 }
 
+void MainWindow:: DELSignup(){
+
+    delete signUpUserEdit;
+    delete signUpPassEdit;
+    delete signUpUserLabel;
+    delete signUpPassLabel;
+    delete signUpMainForm;
+    delete signUpNameEdit;
+    delete signUpLast_nameEdit;
+    delete signUpPhone_numberEdit;
+    delete signUpEmailEdit;
+    delete signUpAddressEdit;
+    delete signUpNameLabel;
+    delete signUpLast_nameLabel;
+    delete signUpPhone_numberLabel;
+    delete signUpEmailLabel;
+    delete signUpAddressLabel;
+}
+void MainWindow:: DELLogin(){
+    delete loginUserEdit;
+    delete loginPassEdit;
+    delete loginUserLabel;
+    delete loginPassLabel;
+    delete loginMainForm;
+
+}
 
 
 void MainWindow::on_loginOk_clicked()
 {
-
-
-
+    READ_FILE(players);
+    int found=0;
+    for(auto user: players){
+        if(user.get_username()==loginUserEdit->text().toStdString()&&user.get_pass()==loginPassEdit->text().toStdString()){
+            start_game(user);
+            this->close();
+            found=1;
+        }
+    }
+    if(found==0){
+        QMessageBox::information(this,tr("Login"),tr("Username or Password is not correct"));
+        loginUserEdit->setText("");
+        loginPassEdit->setText("");
+    }
 }
+
+
 
