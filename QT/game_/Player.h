@@ -5,6 +5,7 @@
 #include "NumberedCard.h"
 #include <list>
 #include <vector>
+#include <QTextStream>
 using namespace std;
 class Player
 {
@@ -70,8 +71,8 @@ public:
     void set_password(string n){
         password=n;
     }
-    friend istream& operator>>(istream &in,Player& c);
-    friend ostream& operator<<(ostream &out,Player c);
+    friend QTextStream& operator>>(QTextStream &in,Player& c);
+    friend QTextStream& operator<<(QTextStream &out,Player c);
 
 };
 

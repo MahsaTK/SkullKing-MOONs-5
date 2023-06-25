@@ -1,16 +1,38 @@
 # ninja log v5
-5	167	7091255163152354	game__autogen/timestamp	53553ecb8a282aff
-5	167	7091255163152354	game__autogen/mocs_compilation.cpp	53553ecb8a282aff
-5	167	7091255163152354	C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/build-game_-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/game__autogen/timestamp	53553ecb8a282aff
-5	167	7091255163152354	C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/build-game_-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/game__autogen/mocs_compilation.cpp	53553ecb8a282aff
-854	3424	7090880740113362	CMakeFiles/game_.dir/main.cpp.obj	aef966dc0c90aaa1
-846	3334	7090880739260778	CMakeFiles/game_.dir/game__autogen/mocs_compilation.cpp.obj	cc3c1f1f7febb8d2
-178	1985	7091255181245661	CMakeFiles/game_.dir/mainwindow.cpp.obj	bb5a63983bafe148
-1986	2277	7091255184058278	game_.exe	ba34c1a436fbd8c2
-580	993	7090821328290529	game__autogen/EWIEGA46WW/qrc_resource.cpp	a1103d85fc0e5eda
-580	993	7090821328290529	C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/build-game_-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/game__autogen/EWIEGA46WW/qrc_resource.cpp	a1103d85fc0e5eda
-1002	9378	7090821412129196	CMakeFiles/game_.dir/game__autogen/EWIEGA46WW/qrc_resource.cpp.obj	cb3bfcc2837be269
-3	549	7091283298380646	build.ninja	cfbd166dca4bd32c
+20	258	7093998065745091	game__autogen/timestamp	53553ecb8a282aff
+20	258	7093998065745091	game__autogen/mocs_compilation.cpp	53553ecb8a282aff
+20	258	7093998065745091	C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/build-game_-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/game__autogen/timestamp	53553ecb8a282aff
+20	258	7093998065745091	C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/build-game_-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/game__autogen/mocs_compilation.cpp	53553ecb8a282aff
+1178	4536	7093945701690400	CMakeFiles/game_.dir/main.cpp.obj	aef966dc0c90aaa1
+1165	4535	7093945701522593	CMakeFiles/game_.dir/game__autogen/mocs_compilation.cpp.obj	cc3c1f1f7febb8d2
+2439	2772	7093998090889911	game_.exe	1009ec7d3c4525e1
+275	2439	7093998087585500	CMakeFiles/game_.dir/mainwindow.cpp.obj	bb5a63983bafe148
+1234	1717	7093089714912590	game__autogen/EWIEGA46WW/qrc_resource.cpp	a1103d85fc0e5eda
+1234	1717	7093089714912590	C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/build-game_-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/game__autogen/EWIEGA46WW/qrc_resource.cpp	a1103d85fc0e5eda
+1731	13097	7093089828701007	CMakeFiles/game_.dir/game__autogen/EWIEGA46WW/qrc_resource.cpp.obj	cb3bfcc2837be269
+3	549	7093274259582131	build.ninja	cfbd166dca4bd32c
 162	1800	7083572098006143	CMakeFiles/game_.dir/loginwindow.cpp.obj	670da2a5b51037e
 0	37	0	CMakeFiles/clean.additional	baedbe210acaa455
 37	47	0	clean	577b940aee94fbd7
+269	2222	7093998085310236	CMakeFiles/game_.dir/startthegame.cpp.obj	c687104fb3e44161
+8	158	7094001351665056	game__autogen/timestamp	53553ecb8a282aff
+8	158	7094001351665056	game__autogen/mocs_compilation.cpp	53553ecb8a282aff
+8	158	7094001351665056	C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/build-game_-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/game__autogen/timestamp	53553ecb8a282aff
+8	158	7094001351665056	C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/build-game_-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/game__autogen/mocs_compilation.cpp	53553ecb8a282aff
+169	1925	7094001369313864	CMakeFiles/game_.dir/startthegame.cpp.obj	c687104fb3e44161
+166	2149	7094001371494170	CMakeFiles/game_.dir/mainwindow.cpp.obj	bb5a63983bafe148
+2149	2469	7094001374711192	game_.exe	1009ec7d3c4525e1
+9	267	7094005447598810	game__autogen/timestamp	53553ecb8a282aff
+9	267	7094005447598810	game__autogen/mocs_compilation.cpp	53553ecb8a282aff
+9	267	7094005447598810	C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/build-game_-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/game__autogen/timestamp	53553ecb8a282aff
+9	267	7094005447598810	C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/build-game_-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/game__autogen/mocs_compilation.cpp	53553ecb8a282aff
+275	2425	7094005469119651	CMakeFiles/game_.dir/startthegame.cpp.obj	c687104fb3e44161
+279	2729	7094005472249158	CMakeFiles/game_.dir/mainwindow.cpp.obj	bb5a63983bafe148
+2729	3104	7094005475941035	game_.exe	1009ec7d3c4525e1
+4	171	7094007764876335	game__autogen/timestamp	53553ecb8a282aff
+4	171	7094007764876335	game__autogen/mocs_compilation.cpp	53553ecb8a282aff
+4	171	7094007764876335	C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/build-game_-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/game__autogen/timestamp	53553ecb8a282aff
+4	171	7094007764876335	C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/build-game_-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/game__autogen/mocs_compilation.cpp	53553ecb8a282aff
+179	1879	7094007781906395	CMakeFiles/game_.dir/startthegame.cpp.obj	c687104fb3e44161
+183	2142	7094007784541464	CMakeFiles/game_.dir/mainwindow.cpp.obj	bb5a63983bafe148
+2143	2464	7094007787731742	game_.exe	1009ec7d3c4525e1

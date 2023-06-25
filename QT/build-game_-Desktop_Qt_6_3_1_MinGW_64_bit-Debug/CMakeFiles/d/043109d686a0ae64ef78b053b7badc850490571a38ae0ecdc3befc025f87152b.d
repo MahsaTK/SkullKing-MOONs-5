@@ -1,4 +1,6 @@
 game__autogen/timestamp: \
+  C:/Qt/6.3.1/mingw_64/include/QtCore/QList \
+  C:/Qt/6.3.1/mingw_64/include/QtCore/QTextStream \
   C:/Qt/6.3.1/mingw_64/include/QtCore/qalgorithms.h \
   C:/Qt/6.3.1/mingw_64/include/QtCore/qanystringview.h \
   C:/Qt/6.3.1/mingw_64/include/QtCore/qarraydata.h \
@@ -489,5 +491,8 @@ game__autogen/timestamp: \
   C:/Users/pouyaandish/Desktop/mahsa\ git/Skull-king/QT/game_/mainwindow.cpp \
   C:/Users/pouyaandish/Desktop/mahsa\ git/Skull-king/QT/game_/mainwindow.h \
   C:/Users/pouyaandish/Desktop/mahsa\ git/Skull-king/QT/game_/resource.qrc \
+  C:/Users/pouyaandish/Desktop/mahsa\ git/Skull-king/QT/game_/startthegame.cpp \
+  C:/Users/pouyaandish/Desktop/mahsa\ git/Skull-king/QT/game_/startthegame.h \
   C:/Users/pouyaandish/Desktop/mahsa\ git/Skull-king/QT/game_/mainwindow.ui \
+  C:/Users/pouyaandish/Desktop/mahsa\ git/Skull-king/QT/game_/startthegame.ui \
   C:/Qt/Tools/CMake_64/bin/cmake.exe

@@ -1,5 +1,7 @@
 C:/Users/pouyaandish/Desktop/mahsa\ git/Skull-king/QT/build-game_-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/game__autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/Users/pouyaandish/Desktop/mahsa\ git/Skull-king/QT/game_/mainwindow.h \
   C:/Users/pouyaandish/Desktop/mahsa\ git/Skull-king/QT/build-game_-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/game__autogen/moc_predefs.h \
+  C:/Qt/6.3.1/mingw_64/include/QtCore/QList \
+  C:/Qt/6.3.1/mingw_64/include/QtCore/QTextStream \
   C:/Qt/6.3.1/mingw_64/include/QtCore/qalgorithms.h \
   C:/Qt/6.3.1/mingw_64/include/QtCore/qanystringview.h \
   C:/Qt/6.3.1/mingw_64/include/QtCore/qarraydata.h \
@@ -359,5 +361,8 @@ C:/Users/pouyaandish/Desktop/mahsa\ git/Skull-king/QT/build-game_-Desktop_Qt_6_3
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h \
   C:/Users/pouyaandish/Desktop/mahsa\ git/Skull-king/QT/game_/Card.h \
+  C:/Users/pouyaandish/Desktop/mahsa\ git/Skull-king/QT/game_/CharacterCard.h \
   C:/Users/pouyaandish/Desktop/mahsa\ git/Skull-king/QT/game_/GameInfo.h \
-  C:/Users/pouyaandish/Desktop/mahsa\ git/Skull-king/QT/game_/Player.h
+  C:/Users/pouyaandish/Desktop/mahsa\ git/Skull-king/QT/game_/NumberedCard.h \
+  C:/Users/pouyaandish/Desktop/mahsa\ git/Skull-king/QT/game_/Player.h \
+  C:/Users/pouyaandish/Desktop/mahsa\ git/Skull-king/QT/game_/startthegame.h

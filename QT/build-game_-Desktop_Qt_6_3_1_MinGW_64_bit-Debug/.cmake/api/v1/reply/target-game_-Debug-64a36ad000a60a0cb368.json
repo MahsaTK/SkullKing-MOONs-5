@@ -32,7 +32,7 @@
 			{
 				"command" : 3,
 				"file" : 1,
-				"line" : 33,
+				"line" : 36,
 				"parent" : 0
 			},
 			{
@@ -56,7 +56,7 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 55,
+				"line" : 58,
 				"parent" : 0
 			},
 			{
@@ -179,7 +179,8 @@
 				0,
 				2,
 				3,
-				15
+				14,
+				19
 			]
 		}
 	],
@@ -275,7 +276,8 @@
 				0,
 				2,
 				3,
-				15
+				14,
+				19
 			]
 		},
 		{
@@ -284,7 +286,8 @@
 			[
 				1,
 				5,
-				14
+				15,
+				18
 			]
 		},
 		{
@@ -299,15 +302,17 @@
 				10,
 				11,
 				12,
-				13
+				13,
+				16,
+				17
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				16,
-				17
+				20,
+				21
 			]
 		}
 	],
@@ -383,9 +388,31 @@
 			"sourceGroupIndex" : 2
 		},
 		{
+			"backtrace" : 4,
+			"path" : "startthegame.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "startthegame.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "startthegame.ui",
+			"sourceGroupIndex" : 1
+		},
+		{
 			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/build-game_-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/game__autogen/include/ui_mainwindow.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/build-game_-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/game__autogen/include/ui_startthegame.h",
 			"sourceGroupIndex" : 2
 		},
 		{

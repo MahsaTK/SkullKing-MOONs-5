@@ -314,6 +314,12 @@
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
 			null
+		],
+		[
+			"C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/game_/startthegame.h",
+			"MU",
+			"EWIEGA46WW/moc_startthegame.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -394,6 +400,11 @@
 		],
 		[
 			"C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/game_/mainwindow.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/pouyaandish/Desktop/mahsa git/Skull-king/QT/game_/startthegame.cpp",
 			"MU",
 			null
 		]
