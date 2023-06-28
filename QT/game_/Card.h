@@ -19,12 +19,13 @@ protected:
     cardType type;
 
 public:
+    Card (cardType t){
+        type=t;}
     int getType()
     {
         return type;
     }
     virtual bool operator>(Card& card) = 0;
 };
-extern Card* mainCards[56];
 
 #endif

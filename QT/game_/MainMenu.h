@@ -2,6 +2,9 @@
 #define MainMenu_H
 #include <QMainWindow>
 #include "Player.h"
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QFormLayout>
 namespace Ui {
 class MainMenu;
 }
@@ -16,9 +19,14 @@ public:
     void Logout();
     ~MainMenu();
 
+
+private slots:
+    void on_ClientBtn_clicked();
+
 private:
     Ui::MainMenu *ui;
     Player player;
+    QFormLayout* MainLayout;
 };
 
 #endif // MainMenu_H

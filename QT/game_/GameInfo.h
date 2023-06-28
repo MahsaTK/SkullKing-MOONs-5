@@ -18,8 +18,28 @@ protected:
     int character1[3]; // in order from left to right Queen King Pirot
     int character2[3];
 public:
+    GameInfo(GameInfo &copy){
+    for(int i=0 ;i!=7;i++){
+        predict1[i]=copy.predict1[i];
+        predict2[i]=copy.predict2[i];
+        result1[i]=copy.result1[i];
+        result2[i]=copy.result2[i];
+    }
+        for (int i = 0; i < 3; i++)
+        {
+            character1[i] = copy.character1[i];
+            character2[i] =copy.character2[i] ;
+        }
+    }
+
     GameInfo()
     {
+        for(int i=0 ;i!=7;i++){
+            predict1[i]=0;
+            predict2[i]=0;
+            result1[i]=0;
+            result2[i]=0;
+        }
         for (int i = 0; i < 3; i++)
         {
             character1[i] = 0;
@@ -69,8 +89,22 @@ protected:
     int character3[3];
 
 public:
-    ThreePlayer()
+    ThreePlayer(ThreePlayer & copy):GameInfo(copy){
+        for(int i=0 ;i!=7;i++){
+            predict3[i]=copy.predict3[i];
+            result3[i]=copy.result3[i];
+        }
+            for (int i = 0; i < 3; i++)
+            {
+                character3[i] =copy.character3[i] ;
+            }
+    }
+    ThreePlayer():GameInfo()
     {
+        for(int i=0 ;i!=7;i++){
+            predict3[i]=0;
+            result3[i]=0;
+        }
         for (int i = 0; i < 3; i++)
         {
             character3[i] = 0;
@@ -128,8 +162,22 @@ class FourPlayer : public ThreePlayer
     int character4[3];
 
 public:
-    FourPlayer()
+    FourPlayer(FourPlayer & copy):ThreePlayer(copy){
+        for(int i=0 ;i!=7;i++){
+            predict3[i]=copy.predict4[i];
+            result3[i]=copy.result4[i];
+        }
+            for (int i = 0; i < 3; i++)
+            {
+                character4[i] =copy.character4[i] ;
+            }
+    }
+    FourPlayer():ThreePlayer()
     {
+        for(int i=0 ;i!=7;i++){
+            predict4[i]=0;
+            result4[i]=0;
+        }
         for (int i = 0; i < 3; i++)
         {
             character4[i] = 0;

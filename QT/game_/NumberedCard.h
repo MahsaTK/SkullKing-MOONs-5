@@ -8,6 +8,11 @@ private:
     int number;
 
 public:
+    NumberedCard(int n,cardType t):Card(t){
+        number=n;
+
+    }
+    int GetNumber(){return number;}
     bool operator>(Card &card) // left card is the first played card
     {
         if (type == card.getType())

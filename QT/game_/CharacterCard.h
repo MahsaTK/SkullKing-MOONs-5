@@ -5,6 +5,9 @@ using namespace std;
 class CharacterCard : public Card
 {
 public:
+    CharacterCard(cardType t):Card(t){
+
+    }
     bool operator>(Card &card) // left card is the first played card
     {
         if (type == card.getType())

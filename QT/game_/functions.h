@@ -23,9 +23,8 @@ QTextStream& operator<<(QTextStream &out,Player c){
     <<QString::fromStdString(c.email)<<'\n'
     <<QString::number(c.won)<<'\n'
     <<QString::number(c.lost)<<'\n'
-    <<QString::number(c.coins);
-    //        <<c.last_game
-    //        <<c.current_game;
+    <<QString::number(c.coins)<<'\n';
+    //<<c.last_game;
     return out;
 }
 void READ_FILE(vector<Player> &users){

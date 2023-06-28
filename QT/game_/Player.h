@@ -43,7 +43,7 @@ public:
 
     }
     Player(){ won=0;lost=0;coins=0;}
-    void set_cards(int round, int player) {
+    void set_cards(int round, int player, Card* mainCards[]) {
         for (int i = (player - 1) * (round) * 2; i != (player) * (round) * 2; i++) {
             cards.push_front(mainCards[i]);
         }

@@ -34,6 +34,7 @@ private slots:
 
     void on_loginOk_clicked();
 
+
 private:
     Ui::MainWindow *ui;
     QLineEdit* loginUserEdit;

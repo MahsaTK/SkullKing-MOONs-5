@@ -11,9 +11,11 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
-
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Network)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Network)
 set(PROJECT_SOURCES
     resource.qrc
     main.cpp
@@ -30,6 +32,16 @@ set(PROJECT_SOURCES
     MainMenu.h
     MainMenu.cpp
     MainMenu.ui
+    twoplayerscreen.h
+    twoplayerscreen.cpp
+    twoplayerscreen.ui
+    server.h
+    server.cpp
+    server.ui
+    client.h
+    client.cpp
+    client.ui
+
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -56,7 +68,7 @@ endif()
 endif()
 
 target_link_libraries(game_ PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
-
+target_link_libraries(game_ PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Network)
 set_target_properties(game_ PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
