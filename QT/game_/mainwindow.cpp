@@ -9,6 +9,8 @@
 #include <QMessageBox>
 #include <QFormLayout>
 #include <functions.h>
+#include <QMetaMethod>
+#include <forgot.h>
 
 vector<Player> players;
 MainWindow::MainWindow(QWidget *parent)
@@ -21,6 +23,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->forgotPassword->hide();
     ui->signUpOk->hide();
     ui->loginOk->hide();
+    ui->forgotOk->hide();
+    forgotok=ui->forgotOk;
     // QPixmap bkgnd(":/img/img/background.png");
     //   bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
     // QPalette palette;
@@ -31,7 +35,7 @@ MainWindow::MainWindow(QWidget *parent)
     // );
     // setCentralWidget(ui->pushButton);
     //setCentralWidget(ui->pushButton_2);
-
+    
 
     this->setFixedSize(350,500);
 
@@ -81,7 +85,24 @@ void MainWindow ::login(){
     QWidget *widget = new QWidget();
     widget->setLayout(loginMainForm);
     this->setCentralWidget(widget);
-
+//    static const QMetaMethod Signal = QMetaMethod::fromSignal(&QPushButton::clicked);
+//    if(isSignalConnected(Signal)){
+//        QWidget::setWindowTitle("Forgot Password");
+//        forgotForm=new QFormLayout();
+//        fUserLabel=new QLabel("Phone Number: ");
+//        fUserEdit = new QLineEdit();
+//        fPassLabel=new QLabel("Password: ");
+//        fPassEdit=new QLineEdit();
+//        fPassEdit->setEchoMode(QLineEdit::Password);
+//        forgotForm->addRow(fUserLabel,fUserEdit);
+//        forgotForm->addRow(fPassLabel,fPassEdit);
+//        forgotok->show();
+//        forgotForm->addRow(forgotok);
+//        QWidget *widget = new QWidget();
+//        widget->setLayout(forgotForm);
+//        this->setCentralWidget(widget);
+//    }
+    
 
 }
 
@@ -127,8 +148,8 @@ void MainWindow ::signUp(){
 void MainWindow::on_signUpOk_clicked()
 {
     if(signUpUserEdit->text().isEmpty()||signUpAddressEdit->text().isEmpty()||
-            signUpEmailEdit->text().isEmpty()||signUpPhone_numberEdit->text().isEmpty()||
-            signUpLast_nameEdit->text().isEmpty()||signUpPassEdit->text().isEmpty()||signUpNameEdit->text().isEmpty()){
+        signUpEmailEdit->text().isEmpty()||signUpPhone_numberEdit->text().isEmpty()||
+        signUpLast_nameEdit->text().isEmpty()||signUpPassEdit->text().isEmpty()||signUpNameEdit->text().isEmpty()){
         QMessageBox::information(this,tr("Sign up"),tr("Please fill the form!"));
     }
     else{
@@ -140,8 +161,9 @@ void MainWindow::on_signUpOk_clicked()
         newPlayer.set_phone_number(signUpPhone_numberEdit->text().toStdString());
         newPlayer.set_password(signUpPassEdit->text().toStdString());
         newPlayer.set_name(signUpNameEdit->text().toStdString());
+        READ_FILE(players);
         players.push_back(newPlayer);
-        start_game(newPlayer);
+        start_game(newPlayer); 
         WRITE_FILE(players);
         DELSignup();
         this->close();
@@ -182,9 +204,10 @@ void MainWindow::on_loginOk_clicked()
     int found=0;
     for(auto user: players){
         if(user.get_username()==loginUserEdit->text().toStdString()&&user.get_pass()==loginPassEdit->text().toStdString()){
-            start_game(user);
             this->close();
+            start_game(user);
             found=1;
+            break;
         }
     }
     if(found==0){
@@ -194,5 +217,34 @@ void MainWindow::on_loginOk_clicked()
     }
 }
 
+void MainWindow::on_forgotPassword_clicked()
+{
+    Forgot forgotpage;
+}
 
-
+void MainWindow::on_forgotOk_clicked()
+{
+    READ_FILE(players);
+    int found=0;
+    for(auto user: players){
+        if(user.get_username()==fUserEdit->text().toStdString()){
+            user.set_password(fPassEdit->text().toStdString());
+            found=1;
+            QMessageBox::information(this,tr("Forgot Password"),tr("Password Updated successfully"));
+            break;
+        }
+    }
+    if(found==0){
+        QMessageBox::information(this,tr("Forgot Password"),tr("Username Can Not Be Found!"));
+        fUserEdit->setText("");
+        fPassEdit->setText("");
+    }
+    else{
+        delete fUserEdit;
+        delete fUserLabel;
+        delete fPassEdit;
+        delete fPassLabel;
+        delete forgotForm;
+        login();
+    }
+}
