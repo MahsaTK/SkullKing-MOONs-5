@@ -3,7 +3,7 @@
 #include <QTcpServer>
 #include <QWidget>
 #include <vector>
-#include "Client.h"
+#include "channels.h"
 namespace Ui {
 class Server;
 }
@@ -21,7 +21,7 @@ public slots:
 private:
     Ui::Server *ui;
     QTcpServer *myServer;
-    std::vector<Client*> AllCLients;
+    std::vector<Channels*> AllCLients;
 };
 
 #endif // SERVER_H

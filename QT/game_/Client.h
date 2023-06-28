@@ -13,14 +13,20 @@ class Client : public QWidget
     Q_OBJECT
 
 public:
-    explicit Client(QTcpSocket*c, QWidget *parent = nullptr);
+    explicit Client(QString,QWidget *parent = nullptr);
     ~Client();
-    void communicate();
+     QTcpSocket * ClientSocket;
+     QString IP;
+public slots:
+    void connectingToServer();
+    void readingData();
+    void writingData();
+    void connectedToServer();
+    void disconnectedFromServer();
 
 private:
     Ui::Client *ui;
-    QTcpSocket *ClientSocket;
-    std::thread Thread;
+
 };
 
 #endif // CLIENT_H

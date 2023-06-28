@@ -1,4 +1,5 @@
 #include "server.h"
+#include "channels.h"
 #include "ui_server.h"
 #include <QDebug>
 Server::Server(QWidget *parent) :
@@ -16,7 +17,8 @@ Server::Server(QWidget *parent) :
     }
 }
 void Server::newConnectionsSlot(){
-    myServer->new
+  Channels * newClientChannel=new Channels(myServer->nextPendingConnection(),0);
+         AllCLients.push_back(newClientChannel);
 }
 Server::~Server()
 {
