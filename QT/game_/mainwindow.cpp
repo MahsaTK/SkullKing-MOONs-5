@@ -216,6 +216,6 @@ void MainWindow::on_loginOk_clicked()
 
 void MainWindow::on_forgotPassword_clicked()
 {
-    Forgot forgotMenu;
-    forgotMenu.show();
+    Forgot* forgotMenu=new Forgot() ;
+    forgotMenu->show();
 }
