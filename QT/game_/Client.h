@@ -1,6 +1,7 @@
 #ifndef CLIENT_H
 #define CLIENT_H
 
+#include "Player.h"
 #include <QWidget>
 #include <QTcpSocket>
 #include <thread>
@@ -13,10 +14,11 @@ class Client : public QWidget
     Q_OBJECT
 
 public:
-    explicit Client(QString,QWidget *parent = nullptr);
+    explicit Client(Player,QHostAddress ,QWidget *parent = nullptr);
     ~Client();
      QTcpSocket * ClientSocket;
-     QString IP;
+     QHostAddress IP;
+     Player playerClient;
 public slots:
     void connectingToServer();
     void readingData();

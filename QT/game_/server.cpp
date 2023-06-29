@@ -13,7 +13,7 @@ Server::Server(QWidget *parent) :
         qDebug()<<"error: not listening";
     else{
         qDebug()<<"listening";
-        connect(myServer,SIGNAL(newConnection),this,SLOT(newConnectionSlot()));
+        connect(myServer,SIGNAL(newConnection()),this,SLOT(newConnectionsSlot()));
     }
 }
 void Server::newConnectionsSlot(){

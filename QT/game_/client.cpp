@@ -1,21 +1,23 @@
 #include "Client.h"
 #include "ui_client.h"
-
-Client::Client(QString Ip,QWidget *parent) :
+//Player
+Client::Client(Player p,QHostAddress Ip,QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Client)
-{
+{playerClient=p;
     IP=Ip;
     ui->setupUi(this);
-    //connect(connectPBN,SIGNAL(clicked()),this,SLOT(connectingToServer());
-    connect(ClientSocket,SIGNAL(bytesWritten(qint64)),this,SLOT(writingData()));
-    connect(ClientSocket,SIGNAL(readyRead()),this,SLOT(readingData()));
-    connect(ClientSocket,SIGNAL(disconnect()),this,SLOT(disconnectedFromServer()));
+    ClientSocket=new QTcpSocket();
+    ClientSocket->connectToHost(IP,1025);
+   // connect(connectPBN,SIGNAL(clicked()),this,SLOT(connectingToServer());
+    //connect(ClientSocket,SIGNAL(bytesWritten(qint64)),this,SLOT(writingData()));
+    //connect(ClientSocket,SIGNAL(readyRead()),this,SLOT(readingData()));
+   // connect(ClientSocket,SIGNAL(disconnect()),this,SLOT(disconnectedFromServer()));
+    connect(ClientSocket,SIGNAL(connected()),this,SLOT(connectedToServer()));
 
 }
 void Client::connectingToServer(){
-    ClientSocket=new QTcpSocket();
-    ClientSocket->connectToHost(IP,1025);
+
     connect(ClientSocket,SIGNAL(connected()),this,SLOT(connectedToServer()));
 }
 void Client::readingData(){
