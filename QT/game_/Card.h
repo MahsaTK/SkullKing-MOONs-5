@@ -1,3 +1,4 @@
+#pragma once
 #ifndef card_h
 #define card_h
 #include <iostream>

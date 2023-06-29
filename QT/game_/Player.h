@@ -1,15 +1,21 @@
 #ifndef PLAYER_H
 #define PLAYER_H
+#pragma once
 #include <iostream>
 #include "GameInfo.h"
 #include "NumberedCard.h"
 #include <list>
 #include <vector>
 #include <QTextStream>
+#include <QFile>
+#include <QCoreApplication>
+#include <QDir>
 using namespace std;
 class Player
 {
     friend void switch_card(Player first, Player second);
+    friend QTextStream& operator>>(QTextStream &in,Player& c);
+    friend QTextStream& operator<<(QTextStream &out,Player& c);
 private:
     string name;
     string last_name;
@@ -51,6 +57,12 @@ public:
     void set_name(string n){
         name=n;
     }
+    //    void set_number(string n){
+    //        phone_number=n;
+    //    }
+    string get_number(){
+        return phone_number;
+    }
     string get_pass(){return password;}
     string get_username(){return username;}
     void set_last_name(string n){
@@ -71,9 +83,39 @@ public:
     void set_password(string n){
         password=n;
     }
-    friend QTextStream& operator>>(QTextStream &in,Player& c);
-    friend QTextStream& operator<<(QTextStream &out,Player c);
 
 };
+
+//QTextStream& operator<<(QTextStream &out,Player c){
+//    out<< QString::fromStdString(c.name)<<'\n'
+//        <<QString::fromStdString(c.last_name)<<'\n'
+//        <<QString::fromStdString(c.username)<<'\n'
+//        <<QString::fromStdString(c.address)<<'\n'
+//        <<QString::fromStdString(c.phone_number)<<'\n'
+//        <<QString::fromStdString(c.password)<<'\n'
+//        <<QString::fromStdString(c.email)<<'\n'
+//        <<QString::number(c.won)<<'\n'
+//        <<QString::number(c.lost)<<'\n'
+//        <<QString::number(c.coins)<<'\n';
+//    //<<c.last_game;
+//    return out;
+//}
+//QTextStream& operator>>(QTextStream &in,Player& c){
+//    c.name=in.readLine().toStdString();
+//    c.last_name=in.readLine().toStdString();
+//    c.username=in.readLine().toStdString();
+//    c.address=in.readLine().toStdString();
+//    c.phone_number=in.readLine().toStdString();
+//    c.password=in.readLine().toStdString();
+//    c.email=in.readLine().toStdString();
+//    c.won=in.readLine().toInt();
+//    c.lost=in.readLine().toInt();
+//    c.coins=in.readLine().toInt();
+//    //    >>c.last_game>>
+//    //    >>c.current_game;
+//    return in;
+//}
+
+extern vector<Player> players;
 
 #endif

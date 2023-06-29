@@ -8,11 +8,10 @@
 #include <QHBoxLayout>
 #include <QMessageBox>
 #include <QFormLayout>
-#include <functions.h>
 #include <QMetaMethod>
-#include <forgot.h>
-
+#include "forgot.h"
 vector<Player> players;
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -23,8 +22,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->forgotPassword->hide();
     ui->signUpOk->hide();
     ui->loginOk->hide();
-    ui->forgotOk->hide();
-    forgotok=ui->forgotOk;
     // QPixmap bkgnd(":/img/img/background.png");
     //   bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
     // QPalette palette;
@@ -219,32 +216,6 @@ void MainWindow::on_loginOk_clicked()
 
 void MainWindow::on_forgotPassword_clicked()
 {
-    Forgot forgotpage;
-}
-
-void MainWindow::on_forgotOk_clicked()
-{
-    READ_FILE(players);
-    int found=0;
-    for(auto user: players){
-        if(user.get_username()==fUserEdit->text().toStdString()){
-            user.set_password(fPassEdit->text().toStdString());
-            found=1;
-            QMessageBox::information(this,tr("Forgot Password"),tr("Password Updated successfully"));
-            break;
-        }
-    }
-    if(found==0){
-        QMessageBox::information(this,tr("Forgot Password"),tr("Username Can Not Be Found!"));
-        fUserEdit->setText("");
-        fPassEdit->setText("");
-    }
-    else{
-        delete fUserEdit;
-        delete fUserLabel;
-        delete fPassEdit;
-        delete fPassLabel;
-        delete forgotForm;
-        login();
-    }
+    Forgot forgotMenu;
+    forgotMenu.show();
 }

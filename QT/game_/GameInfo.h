@@ -1,3 +1,6 @@
+#pragma once
+#ifndef GAMEINFO_H
+#define GAMEINFO_H
 #include <iostream>
 using namespace std;
 
@@ -19,12 +22,12 @@ protected:
     int character2[3];
 public:
     GameInfo(GameInfo &copy){
-    for(int i=0 ;i!=7;i++){
-        predict1[i]=copy.predict1[i];
-        predict2[i]=copy.predict2[i];
-        result1[i]=copy.result1[i];
-        result2[i]=copy.result2[i];
-    }
+        for(int i=0 ;i!=7;i++){
+            predict1[i]=copy.predict1[i];
+            predict2[i]=copy.predict2[i];
+            result1[i]=copy.result1[i];
+            result2[i]=copy.result2[i];
+        }
         for (int i = 0; i < 3; i++)
         {
             character1[i] = copy.character1[i];
@@ -94,10 +97,10 @@ public:
             predict3[i]=copy.predict3[i];
             result3[i]=copy.result3[i];
         }
-            for (int i = 0; i < 3; i++)
-            {
-                character3[i] =copy.character3[i] ;
-            }
+        for (int i = 0; i < 3; i++)
+        {
+            character3[i] =copy.character3[i] ;
+        }
     }
     ThreePlayer():GameInfo()
     {
@@ -167,10 +170,10 @@ public:
             predict3[i]=copy.predict4[i];
             result3[i]=copy.result4[i];
         }
-            for (int i = 0; i < 3; i++)
-            {
-                character4[i] =copy.character4[i] ;
-            }
+        for (int i = 0; i < 3; i++)
+        {
+            character4[i] =copy.character4[i] ;
+        }
     }
     FourPlayer():ThreePlayer()
     {
@@ -236,3 +239,5 @@ public:
         }
     }
 };
+
+#endif

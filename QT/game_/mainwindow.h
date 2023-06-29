@@ -1,3 +1,4 @@
+#pragma once
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 #include <QPushButton>
@@ -10,7 +11,8 @@
 #include <QHBoxLayout>
 #include <QFormLayout>
 #include <QList>
-#include "MainMenu.h"
+#include <MainMenu.h>
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -34,12 +36,10 @@ private slots:
     void on_signUpOk_clicked();
     void on_loginOk_clicked();
     void on_forgotPassword_clicked();
-    void on_forgotOk_clicked();
 
 
 private:
     Ui::MainWindow *ui;
-    QPushButton * forgotok;
     QLineEdit* loginUserEdit;
     QLineEdit* loginPassEdit;
     QLabel *loginUserLabel;
@@ -60,11 +60,6 @@ private:
     QLabel * signUpPhone_numberLabel;
     QLabel * signUpEmailLabel;
     QLabel *signUpAddressLabel;
-    QFormLayout * forgotForm;
-    QLabel * fUserLabel;
-    QLineEdit * fUserEdit;
-    QLabel * fPassLabel;
-    QLineEdit * fPassEdit;
     GameInfo last_game;
     GameInfo current_game;
     int won;
@@ -72,8 +67,4 @@ private:
     int coins;
 };
 
-
-
-
-
-#endif // MAINWINDOW_H
+#endif

@@ -1,8 +1,8 @@
-#include "mainwindow.h"
 #include <QSplashScreen>
 #include <QApplication>
 #include <QTimer>
 #include <QListWidgetItem>
+#include <mainwindow.h>
 #include "twoplayerscreen.h"
 int main(int argc, char *argv[])
 {

@@ -1,3 +1,6 @@
+#pragma once
+#ifndef CHARACTERCARD_H
+#define CHARACTERCARD_H
 #include <iostream>
 #include "Card.h"
 using namespace std;
@@ -41,3 +44,4 @@ public:
         }
     }
 };
+#endif
