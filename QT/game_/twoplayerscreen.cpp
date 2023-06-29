@@ -34,9 +34,13 @@ TwoPlayerScreen::TwoPlayerScreen(Server *ser, Client *cl,QWidget *parent) :
     std::random_device rd;
     std::mt19937 g(rd());
     std::shuffle( mainCards2PLayers, mainCards2PLayers+ size, g);
-//    for(int i=0;i!=42;i++){
-//        ShowCards(mainCards2PLayers[i]);
-//    }
+    ShareCards(clientServer->playerClient,tempPlayer,1,mainCards2PLayers);
+
+}
+void TwoPlayerScreen::distributeCards(){
+    for(auto &x: tempPlayer.get_cards()){
+       int type=x->getType();
+    }
 }
 TwoPlayerScreen::TwoPlayerScreen(Client *cl,QWidget *parent) :
     QMainWindow(parent),
@@ -49,22 +53,6 @@ TwoPlayerScreen::TwoPlayerScreen(Client *cl,QWidget *parent) :
     ui->listWidget->setLayoutMode(QListView::Batched);
     ui->listWidget->setViewMode(QListView::IconMode);
     ui->listWidget->setIconSize(QSize(200, 200));
-    for(int i=0;i!=8;i++){
-        mainCards2PLayers[i]=new NumberedCard(i+1,Treasure);
-        mainCards2PLayers[i+8]=new NumberedCard(i+1,Map);
-        mainCards2PLayers[i+16]=new NumberedCard(i+1,Parrot);
-        mainCards2PLayers[i+24]=new NumberedCard(i+1,Hokm);
-    }
-    for(int i=32;i!=35;i++){
-        mainCards2PLayers[i]=new CharacterCard(King);
-        mainCards2PLayers[i+3]=new CharacterCard(Queen);
-        mainCards2PLayers[i+6]=new CharacterCard(Pirot);
-    }
-    mainCards2PLayers[41]=new CharacterCard(Pirot);
-    int size = sizeof(mainCards2PLayers) / sizeof(mainCards2PLayers[0]);
-    std::random_device rd;
-    std::mt19937 g(rd());
-    std::shuffle( mainCards2PLayers, mainCards2PLayers+ size, g);
 //    for(int i=0;i!=42;i++){
 //        ShowCards(mainCards2PLayers[i]);
 //    }

@@ -17,8 +17,9 @@ Server::Server(QWidget *parent) :
     }
 }
 void Server::newConnectionsSlot(){
-  Channels * newClientChannel=new Channels(myServer->nextPendingConnection(),0);
-         AllCLients.push_back(newClientChannel);
+    Channels * newClientChannel=new Channels(myServer->nextPendingConnection(),0);
+    newClientChannel->playerName=newClientChannel->socket->readAll();
+    AllCLients.push_back(newClientChannel);
 }
 Server::~Server()
 {

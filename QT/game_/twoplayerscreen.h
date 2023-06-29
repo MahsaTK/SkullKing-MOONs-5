@@ -23,6 +23,8 @@ public:
      Client *client;
      void ShareCards(Player p1,Player p2,int round,Card*mainCards2PLayers[]);
      Card* mainCards2PLayers[42];
+     Player tempPlayer;
+     void distributeCards();
 private:
     Ui::TwoPlayerScreen *ui;
 };

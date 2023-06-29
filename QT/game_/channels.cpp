@@ -10,6 +10,7 @@ Channels::Channels(QTcpSocket * Socket,QWidget *parent) :
     Thread=std::thread(&Channels::communicate,this);
 }
 void Channels::communicate(){
+
     while(true){
         //
     }

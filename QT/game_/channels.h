@@ -16,10 +16,10 @@ public:
     explicit Channels(QTcpSocket * Socket,QWidget *parent = nullptr);
     ~Channels();
     void communicate();
-    Player playerChannel;
+    QString playerName;
+    QTcpSocket * socket;
 private:
     Ui::Channels *ui;
-    QTcpSocket * socket;
     std::thread Thread;
 };
 

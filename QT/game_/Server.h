@@ -19,10 +19,11 @@ public:
 
 public slots:
     void newConnectionsSlot();
+    std::vector<Channels*> AllCLients;
 private:
     Ui::Server *ui;
     QTcpServer *myServer;
-    std::vector<Channels*> AllCLients;
+
 friend class::MainMenu;
 };
 
