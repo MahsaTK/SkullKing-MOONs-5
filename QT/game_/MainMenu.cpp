@@ -2,6 +2,15 @@
 #include "MainMenu.h"
 #include "ui_MainMenu.h"
 #include "Client.h"
+#include "server.h"
+#include <QInputDialog>
+#include <QDialog>
+#include <QMessageBox>
+#include <QHostAddress>
+#include <cstdlib>
+#include <QHostInfo>
+#include <QThread>
+#include <QProgressDialog>
 MainMenu::MainMenu(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainMenu)
@@ -47,6 +56,68 @@ void MainMenu::Logout(){
 
 void MainMenu::on_ClientBtn_clicked()
 {
+    bool ok1;
+    QString IP = QInputDialog::getText(this, tr("Client"), tr("IP of server:"), QLineEdit::Normal, "", &ok1);
+   if (ok1 && !IP.isEmpty()){
+       Client* client=new Client(player,QHostAddress(IP));
+
+   }
+
+}
+
+
+void MainMenu::on_ServerBtn_clicked()
+{
+    bool ok1;
+
+    QString numbersOfPlayers = QInputDialog::getText(this, tr("Server"), tr("Number of Players"), QLineEdit::Normal, "", &ok1);
+   if (ok1 && !numbersOfPlayers.isEmpty()){
+       int number=numbersOfPlayers.toInt();
+       if(number==2){
+          Server playerServer;
+          Client clientServer(player,QHostAddress::LocalHost);
+          //QHostAddress serverAddress = clientServer.ClientSocket->peerAddress();
+        QString ipAddress;
+         foreach(const QHostAddress &address,QHostInfo::fromName(QHostInfo::localHostName()).addresses()){
+             if(address.protocol()==QAbstractSocket::IPv4Protocol){
+              ipAddress = address.toString();
+             }
+         }
+         ipAddress="IP: "+ipAddress+"\n"+QString::fromStdString(player.get_username());
+          // do something with charArray
+          // Create a QProgressDialog object with a message and a cancel button
+          QProgressDialog progressDialog("Loading...", "Cancel", 0, 100);
+          progressDialog.setWindowModality(Qt::WindowModal); // Make the dialog modal
+
+          // Set the dialog's properties
+          progressDialog.setWindowTitle("Loading");
+          progressDialog.setLabelText(ipAddress);
+
+          // Show the dialog
+          progressDialog.show();
+
+          // Update the progress bar
+          for (;playerServer.AllCLients.size()!=2 ; ) {
+              progressDialog.setValue(50);
+              qApp->processEvents(); // Allow the UI to update
+              if (progressDialog.wasCanceled()) {   //if cancel
+                  break;
+              }
+          }
+         if(playerServer.AllCLients.size()==2) {
+         progressDialog.setValue(100);
+        /////// ipAddress=playerServer.AllCLients.back().player.
+        ipAddress+="\nClient 2";
+         progressDialog.setLabelText(ipAddress);
+        QThread::sleep(3);
+         }
+
+          // Hide the dialog when loading is complete
+          progressDialog.close();
+
+       }
+   }
+
 
 }
 

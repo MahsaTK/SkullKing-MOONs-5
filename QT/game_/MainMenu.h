@@ -23,6 +23,8 @@ public:
 private slots:
     void on_ClientBtn_clicked();
 
+    void on_ServerBtn_clicked();
+
 private:
     Ui::MainMenu *ui;
     Player player;
