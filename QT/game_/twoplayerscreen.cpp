@@ -6,6 +6,12 @@
 #include <QListView>
 #include <algorithm>
 #include <random>
+
+void TwoPlayerScreen::ShareCards(Player p1,Player p2,int round,Card*mainCards2PLayers[]){
+    p1.set_cards(1,round,mainCards2PLayers);
+    p2.set_cards(2,round,mainCards2PLayers);
+}
+
 TwoPlayerScreen::TwoPlayerScreen(Server *ser, Client *cl,QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::TwoPlayerScreen)
@@ -35,13 +41,29 @@ TwoPlayerScreen::TwoPlayerScreen(Server *ser, Client *cl,QWidget *parent) :
     std::mt19937 g(rd());
     std::shuffle( mainCards2PLayers, mainCards2PLayers+ size, g);
     ShareCards(clientServer->playerClient,tempPlayer,1,mainCards2PLayers);
-
 }
+
 void TwoPlayerScreen::distributeCards(){
-    for(auto &x: tempPlayer.get_cards()){
-       int type=x->getType();
+    for(auto x: tempPlayer.get_cards()){
+        int type=x->getType();
+        if(type>4){
+            string toWrite;
+            toWrite.push_back(static_cast<char>(type));
+            toWrite.push_back('\n');
+            server->AllCLients.back()->socket->write(toWrite.c_str());
+       }
+        else{
+           int num=dynamic_cast<NumberedCard&>(*x).GetNumber();
+           string toWrite;
+           toWrite.push_back(static_cast<char>(type));
+           toWrite.push_back(' ');
+           toWrite.push_back(static_cast<char>(num));
+           toWrite.push_back('\n');
+           server->AllCLients.back()->socket->write(toWrite.c_str());
+        }
     }
 }
+
 TwoPlayerScreen::TwoPlayerScreen(Client *cl,QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::TwoPlayerScreen)
@@ -58,10 +80,6 @@ TwoPlayerScreen::TwoPlayerScreen(Client *cl,QWidget *parent) :
 //    }
 }
 
-void ShareCards(Player p1,Player p2,int round,Card*mainCards2PLayers[]){
-    p1.set_cards(1,round,mainCards2PLayers);
-    p2.set_cards(2,round,mainCards2PLayers);
-}
 void TwoPlayerScreen::ShowCards(Card *card){
     if(card->getType()==1){
         NumberedCard *cardptr = dynamic_cast<NumberedCard *>(card);
@@ -114,6 +132,7 @@ void TwoPlayerScreen::ShowCards(Card *card){
         ui->listWidget->addItem(item);
     }
 }
+
 TwoPlayerScreen::~TwoPlayerScreen()
 {
     delete ui;

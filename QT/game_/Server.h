@@ -15,11 +15,11 @@ class Server : public QWidget
 
 public:
     explicit Server(QWidget *parent = nullptr);
+    std::vector<Channels*> AllCLients;
     ~Server();
 
 public slots:
     void newConnectionsSlot();
-    std::vector<Channels*> AllCLients;
 private:
     Ui::Server *ui;
     QTcpServer *myServer;

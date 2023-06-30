@@ -111,7 +111,7 @@ void MainMenu::on_ServerBtn_clicked()
                 /////// ipAddress=playerServer.AllCLients.back().player.
                 ipAddress+="\nClient 2";
                 progressDialog.setLabelText(ipAddress);
-                QThread::sleep(3);
+                QThread::sleep(10);
                 TwoPlayerScreen* twoPlayerS=new TwoPlayerScreen(playerServer,clientServer);
                 twoPlayerS->show();
             }
