@@ -12,7 +12,7 @@ Channels::Channels(QTcpSocket * Socket,QWidget *parent) :
 void Channels::communicate(){
 
     while(true){
-        //
+
     }
 }
 Channels::~Channels()

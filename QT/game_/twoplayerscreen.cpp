@@ -41,6 +41,9 @@ TwoPlayerScreen::TwoPlayerScreen(Server *ser, Client *cl,QWidget *parent) :
     std::mt19937 g(rd());
     std::shuffle( mainCards2PLayers, mainCards2PLayers+ size, g);
     ShareCards(clientServer->playerClient,tempPlayer,1,mainCards2PLayers);
+    for(auto &x: clientServer->playerClient.get_cards()){
+        ShowCards(x);
+    }
 }
 
 void TwoPlayerScreen::distributeCards(){
@@ -75,9 +78,10 @@ TwoPlayerScreen::TwoPlayerScreen(Client *cl,QWidget *parent) :
     ui->listWidget->setLayoutMode(QListView::Batched);
     ui->listWidget->setViewMode(QListView::IconMode);
     ui->listWidget->setIconSize(QSize(200, 200));
-//    for(int i=0;i!=42;i++){
-//        ShowCards(mainCards2PLayers[i]);
-//    }
+    for(auto &x: client->playerClient.get_cards()){
+        ShowCards(x);
+    }
+
 }
 
 void TwoPlayerScreen::ShowCards(Card *card){

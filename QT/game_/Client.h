@@ -20,7 +20,6 @@ public:
      QHostAddress IP;
      Player playerClient;
 public slots:
-    void connectingToServer();
     void readingData();
     void writingData();
     void connectedToServer();

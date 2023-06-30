@@ -12,15 +12,6 @@
 #include <QThread>
 #include <QProgressDialog>
 #include <twoplayerscreen.h>
-MainMenu::MainMenu(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainMenu)
-{
-    ui->setupUi(this);
-    QWidget::setWindowTitle("Skull King");
-    setWindowIcon(QIcon(":/img/img/نام بازی.png"));
-    this->setFixedSize(350,500);
-}
 
 MainMenu::MainMenu(Player c,QWidget *parent) :
     QMainWindow(parent),
@@ -29,11 +20,7 @@ MainMenu::MainMenu(Player c,QWidget *parent) :
     QWidget::setWindowTitle("Skull King");
     setWindowIcon(QIcon(":/img/img/نام بازی.png"));
     ui->setupUi(this);
-    MainLayout=new QFormLayout();
-    this->setFixedSize(350,500);
-    QWidget *widget = new QWidget();
-    widget->setLayout(MainLayout);
-    this->setCentralWidget(widget);
+    setCentralWidget(ui->layoutWidget);
     player=c;
 }
 MainMenu::~MainMenu()
@@ -52,6 +39,7 @@ void MainMenu::on_ClientBtn_clicked()
         Client* client=new Client(player,QHostAddress(IP));
         TwoPlayerScreen * twoPlayerC=new TwoPlayerScreen(client);
         twoPlayerC->show();
+        this->close();
     }
 
 }
@@ -88,24 +76,31 @@ void MainMenu::on_ServerBtn_clicked()
             progressDialog.show();
 
             // Update the progress bar
+            bool flag=true;
             for (;playerServer->AllCLients.size()!=2 ; ) {
                 progressDialog.setValue(50);
                 qApp->processEvents(); // Allow the UI to update
-                if (progressDialog.wasCanceled()) {   //if cancel
+                if (progressDialog.wasCanceled()) {   delete playerServer;
+                    delete clientServer;
+                    flag=false;
                     break;
                 }
             }
-            if(playerServer->AllCLients.size()==2) {
-                progressDialog.setValue(100);
-                /////// ipAddress=playerServer.AllCLients.back().player.
-                ipAddress+="\nClient 2";
-                progressDialog.setLabelText(ipAddress);
-                QThread::sleep(10);
-                TwoPlayerScreen* twoPlayerS=new TwoPlayerScreen(playerServer,clientServer);
-                twoPlayerS->show();
+            if(flag){
+                if(playerServer->AllCLients.size()==2) {
+                    progressDialog.setValue(100);
+                    /////// ipAddress=playerServer.AllCLients.back().player.
+                    ipAddress+="\n"+playerServer->AllCLients.back()->playerName;
+                    progressDialog.setLabelText(ipAddress);
+                    QThread::sleep(10);
+                    progressDialog.close();
+                    TwoPlayerScreen* twoPlayerS=new TwoPlayerScreen(playerServer,clientServer);
+                    this->close();
+                    twoPlayerS->show();
+                    flag=false;
+                }
             }
 
-            progressDialog.close();
 
         }
     }

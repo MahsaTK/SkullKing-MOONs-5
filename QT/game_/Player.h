@@ -54,7 +54,9 @@ public:
             cards.push_front(mainCards[i]);
         }
     }
-
+    void set_cards(Card * card){
+        cards.push_front(card);
+    }
     list <Card*>& get_cards(){
         static list <Card*> tempCards(cards.begin(),cards.end());
         return tempCards;
