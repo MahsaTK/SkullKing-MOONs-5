@@ -14,7 +14,6 @@ class MainMenu : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit MainMenu(QWidget *parent = nullptr);
     explicit MainMenu(Player c,QWidget *parent = nullptr);
     void Logout();
     ~MainMenu();
