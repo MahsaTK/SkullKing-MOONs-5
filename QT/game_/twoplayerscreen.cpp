@@ -53,7 +53,8 @@ void TwoPlayerScreen::distributeCards(){
             string toWrite;
             toWrite.push_back(static_cast<char>(type));
             toWrite.push_back('\n');
-            server->AllCLients.back()->socket->write(toWrite.c_str());
+            QByteArray byteArray(toWrite.c_str(), static_cast<int>(toWrite.length()));  // cast std::string to QByteArray using constructor
+            server->AllCLients.back()->socket->write(byteArray);
        }
         else{
            int num=dynamic_cast<NumberedCard&>(*x).GetNumber();
@@ -62,8 +63,8 @@ void TwoPlayerScreen::distributeCards(){
            toWrite.push_back(' ');
            toWrite.push_back(static_cast<char>(num));
            toWrite.push_back('\n');
-           server->AllCLients.back()->socket->write(toWrite.c_str());
-        }
+           QByteArray byteArray(toWrite.c_str(), static_cast<int>(toWrite.length()));  // cast std::string to QByteArray using constructor
+           server->AllCLients.back()->socket->write(byteArray);        }
     }
 }
 

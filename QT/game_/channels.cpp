@@ -10,7 +10,12 @@ Channels::Channels(QTcpSocket * Socket,QWidget *parent) :
     Thread=std::thread(&Channels::communicate,this);
 }
 void Channels::communicate(){
-
+    socket->waitForReadyRead(-1);
+    QByteArray byteArray=socket->readAll();
+    QString temp=QString::fromUtf8(byteArray);
+    qDebug()<<temp<<"\n"<<"read temp" ;
+    // cast QByteArray to QString using constructor
+    playerName=temp;
     while(true){
 
     }

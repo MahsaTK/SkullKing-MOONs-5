@@ -17,8 +17,8 @@ Client::Client(Player p,QHostAddress Ip,QWidget *parent) :
 
 }
 void Client::readingData(){
-    char * Read;
-    ClientSocket->readLine(*Read);
+    QByteArray byteArray=ClientSocket->readLine();
+    char* Read= byteArray.data();  // cast QByteArray to char*
     if (Read[0]!='a'){
         if(strlen(Read)==4){
             if(Read[0]==1){
@@ -66,7 +66,9 @@ void Client::writingData(){
 }
 void Client::connectedToServer(){
     qDebug()<<"connected successfully\n";
-    ClientSocket->write(playerClient.get_username().c_str());
+    QByteArray byteArray(playerClient.get_username().c_str(), static_cast<int>(playerClient.get_username().length()));
+    qDebug()<< byteArray;
+    ClientSocket->write(byteArray);
 }
 void Client::disconnectedFromServer(){
     qDebug()<<"disconnected successfully\n";
