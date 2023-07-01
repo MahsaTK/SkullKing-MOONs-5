@@ -16,6 +16,8 @@ class Player
     friend void switch_card(Player first, Player second);
     friend QTextStream& operator>>(QTextStream &in,Player& c);
     friend QTextStream& operator<<(QTextStream &out,Player& c);
+    friend void WRITE_FILE(vector<Player> &users);
+    friend void READ_FILE(vector<Player> &users);
 private:
     string name;
     string last_name;

@@ -2,17 +2,15 @@
 #ifndef GAMEINFO_H
 #define GAMEINFO_H
 #include <iostream>
+#include <QTextStream>
 using namespace std;
 
-
-//copy constructor
-
-
-
-
+////copy constructor
 
 class GameInfo
 {
+    friend QTextStream& operator<<(QTextStream &out,GameInfo& g);
+    friend QTextStream& operator>>(QTextStream &in,GameInfo& g);
 protected:
     int predict1[7];
     int predict2[7];

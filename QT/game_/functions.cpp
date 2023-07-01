@@ -6,6 +6,32 @@ void switch_card(Player first, Player second) {
     first.cards.pop_front();
     second.cards.pop_front();
 }
+QTextStream& operator<<(QTextStream &out,GameInfo& g){
+    for(int i=0;i<7;i++){
+        out <<QString::number(g.predict1[i])<<'\n'
+            <<QString::number(g.predict2[i])<<'\n'
+            <<QString::number(g.result1[i])<<'\n'
+            <<QString::number(g.result2[i])<<'\n';
+    }
+    for(int i=0;i<3;i++){
+        out <<QString::number(g.character1[i])<<'\n'
+            <<QString::number(g.character2[i])<<'\n';
+    }
+    return out;
+}
+QTextStream& operator>>(QTextStream &in,GameInfo& g){
+    for(int i=0;i<7;i++){
+        g.predict1[i]=in.readLine().toInt();
+        g.predict2[i]=in.readLine().toInt();
+        g.result1[i]=in.readLine().toInt();
+        g.result2[i]=in.readLine().toInt();
+    }
+    for(int i=0;i<3;i++){
+        g.character1[i]=in.readLine().toInt();
+        g.character2[i]=in.readLine().toInt();
+    }
+    return in;
+}
 QTextStream& operator<<(QTextStream &out,Player& c){
     out<< QString::fromStdString(c.name)<<'\n'
         <<QString::fromStdString(c.last_name)<<'\n'
@@ -17,7 +43,6 @@ QTextStream& operator<<(QTextStream &out,Player& c){
         <<QString::number(c.won)<<'\n'
         <<QString::number(c.lost)<<'\n'
         <<QString::number(c.coins)<<'\n';
-    //<<c.last_game;
     return out;
 }
 QTextStream& operator>>(QTextStream &in,Player& c){
@@ -31,8 +56,6 @@ QTextStream& operator>>(QTextStream &in,Player& c){
     c.won=in.readLine().toInt();
     c.lost=in.readLine().toInt();
     c.coins=in.readLine().toInt();
-    //    >>c.last_game>>
-    //    >>c.current_game;
     return in;
 }
 
@@ -47,6 +70,7 @@ void READ_FILE(vector<Player> &users){
     while( !in.atEnd()){
         Player player;
         in>>player;
+        in>>player.last_game;
         users.push_back(player);
     }
     file.close();
@@ -58,7 +82,8 @@ void WRITE_FILE(vector<Player> &users){
         return;
     QTextStream out(&file);
     for(auto &c :users){
-        out << c<<'\n';
+        out << c
+            <<c.last_game;
     }
     file.close();
 }

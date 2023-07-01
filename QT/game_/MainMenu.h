@@ -15,14 +15,16 @@ class MainMenu : public QMainWindow
 
 public:
     explicit MainMenu(Player c,QWidget *parent = nullptr);
-    void Logout();
     ~MainMenu();
 
+private slots:
+    void on_history_clicked();
 
 private slots:
     void on_ClientBtn_clicked();
-
+    void on_logOutBtn_clicked();
     void on_ServerBtn_clicked();
+    void on_changeInfo_clicked();
 
 private:
     Ui::MainMenu *ui;

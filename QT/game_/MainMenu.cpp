@@ -13,6 +13,8 @@
 #include <QProgressDialog>
 #include <twoplayerscreen.h>
 #include <QTimer>
+#include <changeinfo.h>
+#include <history.h>
 MainMenu::MainMenu(Player c,QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainMenu)
@@ -20,15 +22,13 @@ MainMenu::MainMenu(Player c,QWidget *parent) :
     QWidget::setWindowTitle("Skull King");
     setWindowIcon(QIcon(":/img/img/نام بازی.png"));
     ui->setupUi(this);
+    this->setFixedSize(350,500);
     setCentralWidget(ui->layoutWidget);
     player=c;
 }
 MainMenu::~MainMenu()
 {
     delete ui;
-}
-void MainMenu::Logout(){
-
 }
 
 void MainMenu::on_ClientBtn_clicked()
@@ -43,7 +43,6 @@ void MainMenu::on_ClientBtn_clicked()
     }
 
 }
-
 
 void MainMenu::on_ServerBtn_clicked()
 {
@@ -107,7 +106,29 @@ void MainMenu::on_ServerBtn_clicked()
 
         }
     }
+}
 
+void MainMenu::on_logOutBtn_clicked()
+{
+    this->close();
+    MainWindow *logout=new MainWindow();
+    logout->show();
+}
 
+void MainMenu::on_changeInfo_clicked()
+{
+    changeInfo* chi=new changeInfo(player);
+//    this->close();
+    chi->show();
+//    while(chi->exec()!=QDialog::Accepted){}
+    player=chi->get_player();
+//    MainMenu* changed=new MainMenu(player);
+//    changed->show();
+}
+
+void MainMenu::on_history_clicked()
+{
+    History* h=new History();
+    h->show();
 }
 
