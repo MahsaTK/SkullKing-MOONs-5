@@ -21,6 +21,9 @@ public:
     void distributeCards();
     void writingData();
     int write;
+    int parrotServer;
+    int parrotClient;
+
 public slots:
     void newConnectionsSlot();
 private:

@@ -18,6 +18,7 @@ public:
     void communicate();
     QString playerName;
     QTcpSocket * socket;
+    QString Done;
 private:
     Ui::Channels *ui;
     std::thread Thread;

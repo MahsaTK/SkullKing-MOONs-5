@@ -6,6 +6,26 @@
 #include <QListView>
 #include <algorithm>
 #include <random>
+#include <QMessageBox>
+void TwoPlayerScreen::chooseTheStater(){
+    srand(time(nullptr)); // Seed the random number generator
+    int randomNumber1 = rand() % 8 +1;
+    int randomNumber2= rand() % 8 +1;
+    while(randomNumber1==randomNumber2){
+        randomNumber2= rand() % 8 +1;}// Generate a random number between1 8
+    QListWidgetItem* myItem = new QListWidgetItem("Parrot "+QString::number(randomNumber1), ui->playGround);
+    QListWidgetItem* myItem2 = new QListWidgetItem("Parrot "+QString::number(randomNumber2), ui->playGround);
+    myItem2->setIcon(QIcon(":/img/img/طوطی.png"));
+    myItem->setIcon(QIcon(":/img/img/طوطی.png"));
+    server->parrotServer=randomNumber1;
+    server->parrotClient=randomNumber2;
+    ui->playGround->addItem(myItem);
+    ui->playGround->addItem(myItem2);
+    QString toWrite=QString::number(randomNumber1)+' '+QString::number(randomNumber2)+'\n';
+    QByteArray myByteArray= toWrite.toUtf8(); // Convert the QString to a QByteArray
+    server->AllCLients.back()->socket->write('$'+myByteArray);
+    server->AllCLients.back()->socket->waitForBytesWritten(-1);
+}
 
 void TwoPlayerScreen::ShareCards(Player &p1,Player &p2,int round,Card*mainCards2PLayers[]){
     p1.set_cards(round,1,mainCards2PLayers);
@@ -24,9 +44,14 @@ TwoPlayerScreen::TwoPlayerScreen(Server *ser, Client *cl,QWidget *parent) :
     ui->listWidget->setLayoutMode(QListView::Batched);
     ui->listWidget->setViewMode(QListView::IconMode);
     ui->listWidget->setIconSize(QSize(200, 200));
-    ui->textBrowser->setText(server->AllCLients.front()->playerName);
+    ui->playGround->setLayoutMode(QListView::Batched);
+    ui->playGround->setViewMode(QListView::IconMode);
+    ui->playGround->setIconSize(QSize(300, 300));
+     ui->playGround->setDragEnabled(false);
+    ui->textBrowser->setText(QString::fromStdString(clientServer->playerClient.get_username()));
     ui->textBrowser_2->setText(server->AllCLients.back()->playerName);
-
+    server->AllCLients.back()->socket->write(QByteArray::fromStdString("?"+clientServer->playerClient.get_username()+"\n"));
+    server->AllCLients.back()->socket->waitForBytesWritten(-1);
     for(int i=0;i!=8;i++){
         mainCards2PLayers[i]=new NumberedCard(i+1,Treasure);
         mainCards2PLayers[i+8]=new NumberedCard(i+1,Map);
@@ -44,13 +69,16 @@ TwoPlayerScreen::TwoPlayerScreen(Server *ser, Client *cl,QWidget *parent) :
     std::mt19937 g(rd());
     std::shuffle( mainCards2PLayers, mainCards2PLayers+ size, g);
     ShareCards(clientServer->playerClient,server->temp,1,mainCards2PLayers);
-    server->write=1;
-    for(auto &x: clientServer->playerClient.get_cards()){
-        ShowCards(x);
-    }
+    chooseTheStater();
+    //server->write=1;
+//    for(auto &x: clientServer->playerClient.get_cards()){
+//        ShowCards(x);
+//    }
+//    server->writingData();
+
+   //    clientServer->playerClient->decreaseCoin(50);
     server->writingData();
 
-//    clientServer->playerClient->decreaseCoin(50);
 }
 
 
@@ -60,20 +88,66 @@ TwoPlayerScreen::TwoPlayerScreen(Client *cl,QWidget *parent) :
     ui(new Ui::TwoPlayerScreen)
 {
     client=cl;
+    client->ClientSocket->waitForReadyRead(-1);
     QWidget::setWindowTitle("Skull King");
     setWindowIcon(QIcon(":/img/img/نام بازی.png"));
     ui->setupUi(this);
+    ui->textBrowser->setText(client->player_username_server);
+    ui->textBrowser_2->setText(QString::fromStdString(client->playerClient.get_username()));
+    ui->playGround->setLayoutMode(QListView::Batched);
+    ui->playGround->setViewMode(QListView::IconMode);
+    ui->playGround->setIconSize(QSize(300, 300));
+    ui->playGround->setDragEnabled(false);
     ui->listWidget->setLayoutMode(QListView::Batched);
     ui->listWidget->setViewMode(QListView::IconMode);
     ui->listWidget->setIconSize(QSize(200, 200));
-       client->ClientSocket->waitForReadyRead(-1);
-    for(auto &x: client->playerClient.get_cards()){
-        ShowCards(x);
-    }
+    client->ClientSocket->waitForReadyRead(-1);
+    QListWidgetItem* myItem = new QListWidgetItem("Parrot "+QString::number(client->parrotServer), ui->playGround);
+    QListWidgetItem* myItem2 = new QListWidgetItem("Parrot "+QString::number(client->parrotClient), ui->playGround);
+    myItem2->setIcon(QIcon(":/img/img/طوطی.png"));
+    myItem->setIcon(QIcon(":/img/img/طوطی.png"));
+    ui->playGround->addItem(myItem);
+    ui->playGround->addItem(myItem2);
 
-//        client->playerClient->decreaseCoin(50);
+//    for(auto &x: client->playerClient.get_cards()){
+//        ShowCards(x);
+//    }
+
+    //        client->playerClient->decreaseCoin(50);
 }
+void TwoPlayerScreen::whoStart(){
+    if(client->parrotServer>client->parrotClient){
+     QMessageBox::information(nullptr, "Starter", "Starter is"+client->player_username_server);
+     starter=1;
+    }
+    else{
+        QMessageBox::information(nullptr, "Starter", "Starter is"+QString::fromStdString(client->playerClient.get_username()));
+        starter=2;
+    }
+    ui->playGround->clear();
+    while (client->playerClient.get_cards().size()<=0) {
+        qDebug()<<"wait for cards";
+    }    for(auto &x: client->playerClient.get_cards()){
+       ShowCards(x);
+    }
+}
+void TwoPlayerScreen::whoStartServer(){
+    if(server->parrotServer>server->parrotClient){
+     QMessageBox::information(nullptr, "Starter", "Starter is"+QString::fromStdString(clientServer->playerClient.get_username()));
+     starter=1;
+    }
+    else{
+        QMessageBox::information(nullptr, "Starter", "Starter is"+server->AllCLients.back()->playerName);
+        starter=2;
+    }
+    ui->playGround->clear();
+    server->write=1;
+        for(auto &x: clientServer->playerClient.get_cards()){
+            ShowCards(x);
+        }
 
+
+}
 void TwoPlayerScreen::ShowCards(Card *card){
     if(card->getType()==1){
         NumberedCard *cardptr = dynamic_cast<NumberedCard *>(card);

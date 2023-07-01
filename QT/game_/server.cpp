@@ -55,5 +55,7 @@ void Server::distributeCards(){
     }
     QByteArray byteArray(toWrite.c_str(), static_cast<int>(toWrite.length()));  // cast std::string to QByteArray using constructor
     toWrite.push_back('\n');
-     AllCLients.back()->socket->write(byteArray);;
+    AllCLients.back()->socket->write(byteArray);;
+    AllCLients.back()->socket->waitForBytesWritten(-1);
+
 }

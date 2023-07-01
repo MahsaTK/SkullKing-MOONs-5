@@ -4,7 +4,8 @@
 Client::Client(Player p,QHostAddress Ip,QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Client)
-{playerClient=p;
+{
+    playerClient=p;
     round=1;
     IP=Ip;
     ui->setupUi(this);
@@ -21,9 +22,26 @@ void Client::readingData(){
 
     {
         QByteArray byteArray=ClientSocket->readLine();
-        char* Read= byteArray.data();  // cast QByteArray to char*
-        int size =strlen(Read);for(int i=0;i<size;){
-            if (Read[i]!='a'){
+        char* Read= byteArray.data();
+       // cast QByteArray to char*
+        if(Read[0]=='$'){
+            parrotServer=Read[1]-'0';
+            parrotClient=(int)Read[3]-'0';
+            ClientSocket->write("Done");
+            ClientSocket->waitForBytesWritten(-1);
+            return;
+        }
+        if(Read[0]=='?'){
+            player_username_server=QString::fromUtf8(byteArray);
+            player_username_server.chop(1);
+            player_username_server.remove(0, 1); // Delete the first character
+            ClientSocket->write("Done");
+            ClientSocket->waitForBytesWritten(-1);
+            return;
+        }
+        int size =strlen(Read);
+        if (Read[0]!='!'){
+        for(int i=0;i<size;){
                 if(Read[i]!='M'){
                     if(Read[i+1]!='M'){
                         if(Read[i]==1){
@@ -72,6 +90,9 @@ void Client::readingData(){
                     }}
             }}
     }
+    ClientSocket->write("Done");
+    ClientSocket->waitForBytesWritten(-1);
+
 }
 void Client::writingData(){
     qDebug()<<"written successfully\n";

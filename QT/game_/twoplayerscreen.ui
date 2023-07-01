@@ -83,16 +83,6 @@ p, li { white-space: pre-wrap; }
      </rect>
     </property>
    </widget>
-   <widget class="QListView" name="listView">
-    <property name="geometry">
-     <rect>
-      <x>390</x>
-      <y>110</y>
-      <width>651</width>
-      <height>351</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
@@ -117,6 +107,16 @@ p, li { white-space: pre-wrap; }
     </property>
     <property name="text">
      <string>Switch Card</string>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="playGround">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>90</y>
+      <width>601</width>
+      <height>371</height>
+     </rect>
     </property>
    </widget>
   </widget>

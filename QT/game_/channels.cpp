@@ -14,19 +14,19 @@ void Channels::communicate(){
     QByteArray byteArray=socket->readLine();
     QString temp=QString::fromUtf8(byteArray);
     temp.chop(1);  // Remove the last character
-
     qDebug()<<temp<<"\n"<<"read temp" ;
     // cast QByteArray to QString using constructor
     playerName=temp;
     while(true){
-//        socket->waitForReadyRead(-1);
-//        QByteArray byteArray=socket->readLine();
-//        QString temp=QString::fromUtf8(byteArray);
-//        if('r'==temp[0]){
-//            qDebug()<<"recived\n";
-//        }
+         Done="";
+         socket->waitForReadyRead(-1);
+         QByteArray byteArray=socket->readLine();
+         QString temp=QString::fromUtf8(byteArray);
+         Done=temp;
+         socket->waitForBytesWritten(-1);
+      }
 
-    }
+
 }
 Channels::~Channels()
 {

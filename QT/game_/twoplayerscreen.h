@@ -23,7 +23,12 @@ public:
     Client *client;
     Card* mainCards2PLayers[42];
     void ShowCards(Card *h);
+    void whoStartServer();
+    void whoStart();
+
+    void chooseTheStater();
 private:
+    int starter;
     Ui::TwoPlayerScreen *ui;
 };
 

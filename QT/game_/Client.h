@@ -20,6 +20,9 @@ public:
      QHostAddress IP;
      int round;
      Player playerClient;
+     QString player_username_server;
+     int parrotClient;
+     int parrotServer;
 public slots:
     void readingData();
     void writingData();
