@@ -11,12 +11,20 @@ Channels::Channels(QTcpSocket * Socket,QWidget *parent) :
 }
 void Channels::communicate(){
     socket->waitForReadyRead(-1);
-    QByteArray byteArray=socket->readAll();
+    QByteArray byteArray=socket->readLine();
     QString temp=QString::fromUtf8(byteArray);
+    temp.chop(1);  // Remove the last character
+
     qDebug()<<temp<<"\n"<<"read temp" ;
     // cast QByteArray to QString using constructor
     playerName=temp;
     while(true){
+        socket->waitForReadyRead(-1);
+        QByteArray byteArray=socket->readLine();
+        QString temp=QString::fromUtf8(byteArray);
+        if('r'==temp[0]){
+            qDebug()<<"recived\n";
+        }
 
     }
 }

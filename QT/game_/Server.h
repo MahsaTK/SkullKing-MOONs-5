@@ -17,14 +17,17 @@ public:
     explicit Server(QWidget *parent = nullptr);
     std::vector<Channels*> AllCLients;
     ~Server();
-
+    Player temp;
+    void distributeCards();
+    void writingData();
+    int write;
 public slots:
     void newConnectionsSlot();
 private:
     Ui::Server *ui;
     QTcpServer *myServer;
 
-friend class::MainMenu;
+    friend class::MainMenu;
 };
 
 #endif // SERVER_H

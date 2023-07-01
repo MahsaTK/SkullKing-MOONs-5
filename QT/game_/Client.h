@@ -18,6 +18,7 @@ public:
     ~Client();
      QTcpSocket * ClientSocket;
      QHostAddress IP;
+     int round;
      Player playerClient;
 public slots:
     void readingData();
