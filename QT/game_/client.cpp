@@ -72,7 +72,6 @@ void Client::readingData(){
                     }}
             }}
     }
-    ClientSocket->write("recived");
 }
 void Client::writingData(){
     qDebug()<<"written successfully\n";

@@ -19,12 +19,12 @@ void Channels::communicate(){
     // cast QByteArray to QString using constructor
     playerName=temp;
     while(true){
-        socket->waitForReadyRead(-1);
-        QByteArray byteArray=socket->readLine();
-        QString temp=QString::fromUtf8(byteArray);
-        if('r'==temp[0]){
-            qDebug()<<"recived\n";
-        }
+//        socket->waitForReadyRead(-1);
+//        QByteArray byteArray=socket->readLine();
+//        QString temp=QString::fromUtf8(byteArray);
+//        if('r'==temp[0]){
+//            qDebug()<<"recived\n";
+//        }
 
     }
 }

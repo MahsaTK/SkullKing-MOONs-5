@@ -95,7 +95,7 @@ void MainMenu::on_ServerBtn_clicked()
                     QApplication::processEvents();
                     progressDialog->setValue(100);
                     QApplication::processEvents();
-                    QThread::msleep(300);
+                    QThread::msleep(3000);
                     progressDialog->close();
                     TwoPlayerScreen* twoPlayerS=new TwoPlayerScreen(playerServer,clientServer);
                     this->close();

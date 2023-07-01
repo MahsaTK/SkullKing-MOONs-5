@@ -45,10 +45,10 @@ TwoPlayerScreen::TwoPlayerScreen(Server *ser, Client *cl,QWidget *parent) :
     std::shuffle( mainCards2PLayers, mainCards2PLayers+ size, g);
     ShareCards(clientServer->playerClient,server->temp,1,mainCards2PLayers);
     server->write=1;
-    server->writingData();
     for(auto &x: clientServer->playerClient.get_cards()){
         ShowCards(x);
     }
+    server->writingData();
 
 //    clientServer->playerClient->decreaseCoin(50);
 }
