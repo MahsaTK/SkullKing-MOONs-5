@@ -27,7 +27,7 @@ public:
         int * r=predict2;
         return r;
     }
-    int* get_result11(){
+    int* get_result1(){
         int * r=predict1;
         return r;
     }

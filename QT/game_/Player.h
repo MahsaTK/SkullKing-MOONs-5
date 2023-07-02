@@ -26,14 +26,25 @@ private:
     string email;
     string address;
     string password;
-    GameInfo last_game;
-    GameInfo current_game;
     int won;
     int lost;
     int coins;
     list <Card*> cards;
 
+
 public:
+    GameInfo current_game;
+    GameInfo last_game;
+//    int** get_last_game(){
+//        int* arr[6];
+//        arr[0]=last_game.get_character1();
+//        arr[1]=last_game.get_character2();
+//        arr[2]=last_game.get_predict1();
+//        arr[3]=last_game.get_predict2();
+//        arr[4]=last_game.get_result1();
+//        arr[5]=last_game.get_result2();
+//        return arr;
+//    }
     Player(const Player& c){
         name=c.name;
         last_name=c.last_name;

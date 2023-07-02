@@ -24,19 +24,23 @@ void Client::readingData(){
         QByteArray byteArray=ClientSocket->readLine();
         char* Read= byteArray.data();
        // cast QByteArray to char*
+        if(Read[0]=='p'){
+            playerClient.current_game.addPredict(1,Read[1]-'0',Read[2]-'0');
+            return;
+        }
         if(Read[0]=='$'){
             parrotServer=Read[1]-'0';
-            parrotClient=(int)Read[3]-'0';
-            ClientSocket->write("Done");
-            ClientSocket->waitForBytesWritten(-1);
+            parrotClient=Read[3]-'0';
+//            ClientSocket->write("Done");
+//            ClientSocket->waitForBytesWritten(-1);
             return;
         }
         if(Read[0]=='?'){
             player_username_server=QString::fromUtf8(byteArray);
             player_username_server.chop(1);
             player_username_server.remove(0, 1); // Delete the first character
-            ClientSocket->write("Done");
-            ClientSocket->waitForBytesWritten(-1);
+//            ClientSocket->write("Done");
+//            ClientSocket->waitForBytesWritten(-1);
             return;
         }
         int size =strlen(Read);
@@ -89,9 +93,15 @@ void Client::readingData(){
                         }
                     }}
             }}
+        else if(Read[0]=='!'){
+            type=Read[1]-'0';
+            if(type<5){
+                number=Read[3]-'0';
+            }
+        }
     }
-    ClientSocket->write("Done");
-    ClientSocket->waitForBytesWritten(-1);
+//    ClientSocket->write("Done");
+//    ClientSocket->waitForBytesWritten(-1);
 
 }
 void Client::writingData(){
@@ -99,7 +109,7 @@ void Client::writingData(){
 }
 void Client::connectedToServer(){
     qDebug()<<"connected successfully\n";
-    string temp=playerClient.get_username();
+    string temp="#"+playerClient.get_username();
     temp+='\n';
     QByteArray byteArray(temp.c_str(), static_cast<int>(temp.length()));
     qDebug()<< byteArray;

@@ -2,7 +2,7 @@
 #include "MainMenu.h"
 #include "ui_MainMenu.h"
 #include "Client.h"
-#include <Server.h>
+#include <server.h>
 #include <QInputDialog>
 #include <QDialog>
 #include <QMessageBox>
@@ -38,8 +38,10 @@ void MainMenu::on_ClientBtn_clicked()
     if (ok1 && !IP.isEmpty()){
         Client* client=new Client(player,QHostAddress(IP));
         TwoPlayerScreen * twoPlayerC=new TwoPlayerScreen(client);
-        twoPlayerC->show();
         this->close();
+        twoPlayerC->show();
+        twoPlayerC->whoStart();
+
     }
 
 }
@@ -99,7 +101,7 @@ void MainMenu::on_ServerBtn_clicked()
                     TwoPlayerScreen* twoPlayerS=new TwoPlayerScreen(playerServer,clientServer);
                     this->close();
                     twoPlayerS->show();
-
+                    twoPlayerS->whoStartServer();
                 }
             }
 

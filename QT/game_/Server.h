@@ -23,9 +23,12 @@ public:
     int write;
     int parrotServer;
     int parrotClient;
-
+    int type;
+    int number;
+    GameInfo current;
 public slots:
     void newConnectionsSlot();
+    void readingData();
 private:
     Ui::Server *ui;
     QTcpServer *myServer;

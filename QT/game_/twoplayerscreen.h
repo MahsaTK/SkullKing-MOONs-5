@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "server.h"
 #include <QMainWindow>
+#include <QListWidget>
 namespace Ui {
 class TwoPlayerScreen;
 }
@@ -25,8 +26,15 @@ public:
     void ShowCards(Card *h);
     void whoStartServer();
     void whoStart();
-
+    void GameRound1client();
     void chooseTheStater();
+    void SendCardToServer(int type, int number );
+    void SendCardToCLient(int type, int number );
+    void ShowCards(int type, int n,QString name);
+    void GameRound1server();
+public slots:
+    void onItemClicked(QListWidgetItem *item);
+    void onItemClickedserver(QListWidgetItem *item);
 private:
     int starter;
     Ui::TwoPlayerScreen *ui;

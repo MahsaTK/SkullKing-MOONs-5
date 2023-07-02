@@ -18,7 +18,7 @@ History::History(GameInfo g2,QWidget *parent) :
     for(int j=0;j<7;j++){
         ui->mainTable->setItem(0, j, new QTableWidgetItem(QString::number(g2.get_predict1()[j])));
         ui->mainTable->setItem(1, j, new QTableWidgetItem(QString::number(g2.get_predict2()[j])));
-        ui->mainTable->setItem(2, j, new QTableWidgetItem(QString::number(g2.get_result11()[j])));
+        ui->mainTable->setItem(2, j, new QTableWidgetItem(QString::number(g2.get_result1()[j])));
         ui->mainTable->setItem(3, j, new QTableWidgetItem(QString::number(g2.get_result2()[j])));
     }
     for(int j=0;j<3;j++){

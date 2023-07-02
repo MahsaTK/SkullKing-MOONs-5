@@ -23,6 +23,8 @@ public:
      QString player_username_server;
      int parrotClient;
      int parrotServer;
+     int type;
+     int number;
 public slots:
     void readingData();
     void writingData();
