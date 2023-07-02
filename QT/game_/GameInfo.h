@@ -19,6 +19,30 @@ protected:
     int character1[3]; // in order from left to right Queen King Pirot
     int character2[3];
 public:
+    int* get_predict1(){
+        int * r=predict1;
+        return r;
+    }
+    int* get_predict2(){
+        int * r=predict2;
+        return r;
+    }
+    int* get_result11(){
+        int * r=predict1;
+        return r;
+    }
+    int* get_result2(){
+        int * r=predict1;
+        return r;
+    }
+    int* get_character1(){
+        int * r=predict1;
+        return r;
+    }
+    int* get_character2(){
+        int * r=predict1;
+        return r;
+    }
     GameInfo(GameInfo &copy){
         for(int i=0 ;i!=7;i++){
             predict1[i]=copy.predict1[i];

@@ -1,6 +1,6 @@
 #ifndef HISTORY_H
 #define HISTORY_H
-
+#include <GameInfo.h>
 #include <QMainWindow>
 
 namespace Ui {
@@ -12,7 +12,7 @@ class History : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit History(QWidget *parent = nullptr);
+    explicit History(GameInfo g2,QWidget *parent = nullptr);
     ~History();
 
 private:

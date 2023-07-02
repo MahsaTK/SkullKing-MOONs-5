@@ -128,7 +128,7 @@ void MainMenu::on_changeInfo_clicked()
 
 void MainMenu::on_history_clicked()
 {
-    History* h=new History();
+    History* h=new History(player.last_game);
     h->show();
 }
 

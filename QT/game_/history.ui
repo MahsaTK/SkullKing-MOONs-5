@@ -1,7 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <author/>
- <comment/>
- <exportmacro/>
  <class>History</class>
  <widget class="QMainWindow" name="History">
   <property name="geometry">
@@ -15,10 +13,138 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QMenuBar" name="menubar"/>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTableWidget" name="mainTable">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>100</y>
+      <width>581</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="showGrid">
+     <bool>true</bool>
+    </property>
+    <attribute name="horizontalHeaderMinimumSectionSize">
+     <number>20</number>
+    </attribute>
+    <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>60</number>
+    </attribute>
+    <attribute name="verticalHeaderMinimumSectionSize">
+     <number>20</number>
+    </attribute>
+    <attribute name="verticalHeaderDefaultSectionSize">
+     <number>27</number>
+    </attribute>
+    <row>
+     <property name="text">
+      <string>First Player's Predict</string>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string>Second Player's Predict</string>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string>First Player's Score</string>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string>Second Player's Score</string>
+     </property>
+    </row>
+    <column>
+     <property name="text">
+      <string>1st hand</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>2nd hand</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>3rd hand</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>4th hand</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>5th hand</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>6th hand</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>7th hand</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QTableWidget" name="charTable">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>280</y>
+      <width>401</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="showGrid">
+     <bool>true</bool>
+    </property>
+    <row>
+     <property name="text">
+      <string>First Player</string>
+     </property>
+    </row>
+    <row>
+     <property name="text">
+      <string>Second Player</string>
+     </property>
+    </row>
+    <column>
+     <property name="text">
+      <string>Queen</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>King</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>Pirot</string>
+     </property>
+    </column>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <pixmapfunction/>
+ <resources/>
  <connections/>
 </ui>
