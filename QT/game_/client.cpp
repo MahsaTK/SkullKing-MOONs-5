@@ -45,7 +45,7 @@ void Client::readingData(){
         }
         int size =strlen(Read);
         if (Read[0]!='!'){
-        for(int i=0;i<size;){
+        for(int i=0;i<size-1;){
                 if(Read[i]!='M'){
                     if(Read[i+1]!='M'){
                         if(Read[i]==1){

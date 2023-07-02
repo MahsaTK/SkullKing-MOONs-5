@@ -251,6 +251,7 @@ void TwoPlayerScreen::whoStart(){
         starter=2;
     }
     ui->playGround->clear();
+    client->ClientSocket->waitForReadyRead(-1);
     while (client->playerClient.get_cards().size()<=0) {
         qDebug()<<"wait for cards";
     }    for(auto &x: client->playerClient.get_cards()){
