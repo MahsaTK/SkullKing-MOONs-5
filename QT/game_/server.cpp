@@ -56,9 +56,9 @@ Server::~Server()
     delete ui;
 }
 void Server::writingData(){
-    if(write==1){
+   // if(write==1){
         distributeCards();
-    }
+    //}
 }
 void Server::distributeCards(){
     string toWrite;
@@ -68,7 +68,6 @@ void Server::distributeCards(){
             toWrite.push_back(static_cast<char>(type));
             toWrite.push_back('M');
             qDebug() <<"write a card";
-
 
        }
         else{

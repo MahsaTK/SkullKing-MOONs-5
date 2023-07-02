@@ -162,12 +162,12 @@ item->setHidden(true);
 }
 
 void TwoPlayerScreen::onItemClicked(QListWidgetItem *item){
-QString text=item->text();
-int number=static_cast<int>(text[text.size()-1].unicode());
-if(number>0&&number<9){
-text.chop(1);
-}
-text.chop(1);
+    string text=item->text().toStdString();
+    int number=text[text.size()-1]-'0';
+    if(number>0&&number<9){
+        text = text.substr(0, text.size()-1);
+    }
+    text = text.substr(0, text.size()-1);
 int type;
 if(text=="Treasure"){
     type=1;
@@ -251,7 +251,6 @@ void TwoPlayerScreen::whoStart(){
         starter=2;
     }
     ui->playGround->clear();
-    client->ClientSocket->waitForReadyRead(-1);
     while (client->playerClient.get_cards().size()<=0) {
         qDebug()<<"wait for cards";
     }    for(auto &x: client->playerClient.get_cards()){
