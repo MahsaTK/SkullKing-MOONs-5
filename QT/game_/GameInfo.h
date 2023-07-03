@@ -82,15 +82,15 @@ public:
             predict2[round - 1] = predict;
         }
     }
-    virtual void addResult(int player, int round,int result)
+    virtual void addResult(int player, int round)
     {
         if (player == 1)
         {
-            result1[round - 1] = result;
+            result1[round - 1] ++;
         }
         else
         {
-            result2[round - 1] = result;
+            result2[round - 1] ++;
         }
     }
     virtual void addCharacter(int player, int character) // character Queen=0 King=1 Pirot=2

@@ -27,14 +27,66 @@ void TwoPlayerScreen::chooseTheStater(){
     server->AllCLients.back()->socket->write('$'+myByteArray);
     server->AllCLients.back()->socket->waitForBytesWritten(-1);
 }
-
 void TwoPlayerScreen::ShareCards(Player &p1,Player &p2,int round,Card*mainCards2PLayers[]){
     p1.set_cards(round,1,mainCards2PLayers);
     p2.set_cards(round,2,mainCards2PLayers);
 }
+void TwoPlayerScreen::WhoWin(Card *p,int round,int set,int type,int number,int player){
+    Card*n;
+   if(type==1){
+       n= new NumberedCard(number,Treasure);
+   }
+    else if(type==2){
+         n= new NumberedCard(number,Map);
+     }
+   else if(type==3){
+        n= new NumberedCard(number,Parrot);
+    }
+   else if(type==4){
+        n= new NumberedCard(number,Hokm);
+    }
+   else if(type==5){
+       n= new CharacterCard(King);
+    }
+   else if(type==6){
+       n= new CharacterCard(Queen);
+    }
+   else if(type==7){
+        n= new CharacterCard(Pirot);
+    }
+   bool win=p>n;
+   if(win){
+       if(player==1){
+           server->current.addResult(1,round);
+       }
+       else
+           server->current.addResult(2,round);
 
-void TwoPlayerScreen::GameRound1server(){
+   }
+   else{ if(player==1){
+       server->current.addResult(2,round);
+
+   }
+   else
+       server->current.addResult(1,round);
+   }
+
+ui->playGround->clear();
+set++;
+if(player==1){
+    GameRound1server(round,set);
+}
+else{
+    GameRound1client(round,set);
+}
+}
+void TwoPlayerScreen::GameRound1server(int Round,int set){
+    if(Round!=1&&set==1){
+        ui->listWidget->clear();
+    }
+    ui->playGround->clear();
     bool ok1;
+    if(set==1){
     QString numbersOfPlayers = QInputDialog::getText(this, tr("Predict"), tr("Predict:"), QLineEdit::Normal, "", &ok1);
     if (ok1 && !numbersOfPlayers.isEmpty()){
         int number=numbersOfPlayers.toInt();
@@ -45,15 +97,38 @@ void TwoPlayerScreen::GameRound1server(){
         server->AllCLients.back()->socket->waitForBytesWritten(-1);
     }
     ui->scoreboard->setText(QString::fromStdString(clientServer->playerClient.get_username())+"\nPredict :"+numbersOfPlayers+"\n");
-/////////////////////////
+    while(server->predict==-1){
+        qDebug()<<"client doesn't predict";
+    }
+    ui->scoreboard->append(server->AllCLients.back()->playerName+"\nPredict :"+QString::number(server->predict)+"\n");
+    server->predict=-1;
+    }
     if(starter==1){
         connect(ui->listWidget, &QListWidget::itemClicked, this, &TwoPlayerScreen::onItemClickedserver);
+        while(server->type==-1){
+            qDebug()<<"client doesn't play";
+        }
+        //server->AllCLients.back()->socket->waitForReadyRead(-1);
+        ShowCards(server->type,server->number,server->AllCLients.back()->playerName);
+        server->type=-1;
     }
     else{
-        server->AllCLients.back()->socket->waitForReadyRead(-1);
+       // server->AllCLients.back()->socket->waitForReadyRead(-1);
+        while(server->type==-1){
+            qDebug()<<"client doesn't play";
+        }
         ShowCards(server->type,server->number,server->AllCLients.back()->playerName);
+        server->type=-1;
         connect(ui->listWidget, &QListWidget::itemClicked, this, &TwoPlayerScreen::onItemClickedserver);
     }
+    if(Round*2==set){
+        Round++;
+        set=1;
+    }
+    else
+        set++;
+
+    //WhoWin()
 }
 TwoPlayerScreen::TwoPlayerScreen(Server *ser, Client *cl,QWidget *parent) :
     QMainWindow(parent),
@@ -63,6 +138,10 @@ TwoPlayerScreen::TwoPlayerScreen(Server *ser, Client *cl,QWidget *parent) :
     clientServer=cl;
     QWidget::setWindowTitle("Skull King");
     setWindowIcon(QIcon(":/img/img/نام بازی.png"));
+    QString str="?"+QString::fromStdString(clientServer->playerClient.get_username())+"\n";
+    QByteArray myByteArray= str.toUtf8();
+    server->AllCLients.back()->socket->write(myByteArray);
+    server->AllCLients.back()->socket->waitForBytesWritten(-1);
     ui->setupUi(this);
     this->ui->Round->setText("Round 1");
     ui->listWidget->setLayoutMode(QListView::Batched);
@@ -71,11 +150,12 @@ TwoPlayerScreen::TwoPlayerScreen(Server *ser, Client *cl,QWidget *parent) :
     ui->playGround->setLayoutMode(QListView::Batched);
     ui->playGround->setViewMode(QListView::IconMode);
     ui->playGround->setIconSize(QSize(300, 300));
-     ui->playGround->setDragEnabled(false);
+    ui->playGround->setDragEnabled(false);
     ui->textBrowser->setText(QString::fromStdString(clientServer->playerClient.get_username()));
-    ui->textBrowser_2->setText(server->AllCLients.back()->playerName);
     server->AllCLients.back()->socket->write(QByteArray::fromStdString("?"+clientServer->playerClient.get_username()+"\n"));
     server->AllCLients.back()->socket->waitForBytesWritten(-1);
+   ///////// while(server->AllCLients.back()->playerName==""){ qDebug()<< "Name of client is null";}
+    ui->textBrowser_2->setText(server->AllCLients.back()->playerName);
     for(int i=0;i!=8;i++){
         mainCards2PLayers[i]=new NumberedCard(i+1,Treasure);
         mainCards2PLayers[i+8]=new NumberedCard(i+1,Map);
@@ -105,7 +185,12 @@ TwoPlayerScreen::TwoPlayerScreen(Server *ser, Client *cl,QWidget *parent) :
     server->writingData();
 
 }
-void TwoPlayerScreen::GameRound1client(){
+void TwoPlayerScreen::GameRound1client(int Round,int set){
+    if(Round!=1&&set==1){
+        ui->listWidget->clear();
+    }
+    ui->playGround->clear();
+    if(set==1){
     bool ok1;
     QString numbersOfPlayers = QInputDialog::getText(this, tr("Predict"), tr("Predict:"), QLineEdit::Normal, "", &ok1);
     if (ok1 && !numbersOfPlayers.isEmpty()){
@@ -117,16 +202,31 @@ void TwoPlayerScreen::GameRound1client(){
         client->ClientSocket->waitForBytesWritten(-1);
     }
     ui->scoreboard->setText(QString::fromStdString(client->playerClient.get_username())+"\nPredict :"+numbersOfPlayers+"\n");
-    ////////////ui->scoreboard->append(client->player_username_server+"\nPredict :"+client->playerClient.current_game.Predict(round,player)+"\n");
+    while(client->predict==-1){qDebug()<< "server doesn't predict";}
+    ui->scoreboard->append(client->player_username_server+"\nPredict :"+QString::number(client->predict)+"\n");
+    client->predict=-1;
+    }
     if(starter==2){
         connect(ui->listWidget, &QListWidget::itemClicked, this, &TwoPlayerScreen::onItemClicked);
+        while(client->type==-1){qDebug()<< "server doesn't choose a card";}
+        ShowCards(client->type,client->number,client->player_username_server);
+        client->type=-1;
 
     }
     else{
-        client->ClientSocket->waitForReadyRead(-1);
+        while(client->type==-1){qDebug()<< "server doesn't choose a card";}
         ShowCards(client->type,client->number,client->player_username_server);
+        client->type=-1;
         connect(ui->listWidget, &QListWidget::itemClicked, this, &TwoPlayerScreen::onItemClicked);
     }
+    if(Round*2==set){
+        Round++;
+        set=1;
+    }
+    else
+        set++;
+
+    //WhoWin()
 }
 void TwoPlayerScreen::onItemClickedserver(QListWidgetItem *item){
 string text=item->text().toStdString();
@@ -213,11 +313,14 @@ TwoPlayerScreen::TwoPlayerScreen(Client *cl,QWidget *parent) :
     ui(new Ui::TwoPlayerScreen)
 {
     client=cl;
-    client->ClientSocket->waitForReadyRead(-1);
-    QWidget::setWindowTitle("Skull King");
+    QString str="#"+QString::fromStdString(client->playerClient.get_username())+"\n";
+    QByteArray myByteArray= str.toUtf8();
+    client->ClientSocket->write(myByteArray);
+    client->ClientSocket->waitForBytesWritten(-1);    QWidget::setWindowTitle("Skull King");
     setWindowIcon(QIcon(":/img/img/نام بازی.png"));
     ui->setupUi(this);
     this->ui->Round->setText("Round 1");
+    while(client->player_username_server==""){qDebug()<<"name of server is null";}
     ui->textBrowser->setText(client->player_username_server);
     ui->textBrowser_2->setText(QString::fromStdString(client->playerClient.get_username()));
     ui->playGround->setLayoutMode(QListView::Batched);
@@ -227,7 +330,6 @@ TwoPlayerScreen::TwoPlayerScreen(Client *cl,QWidget *parent) :
     ui->listWidget->setLayoutMode(QListView::Batched);
     ui->listWidget->setViewMode(QListView::IconMode);
     ui->listWidget->setIconSize(QSize(200, 200));
-    client->ClientSocket->waitForReadyRead(-1);
     QListWidgetItem* myItem = new QListWidgetItem("Parrot "+QString::number(client->parrotServer)+"\n"+client->player_username_server, ui->playGround);
     QListWidgetItem* myItem2 = new QListWidgetItem("Parrot "+QString::number(client->parrotClient)+"\n"+QString::fromStdString(client->playerClient.get_username()), ui->playGround);
     myItem2->setIcon(QIcon(":/img/img/طوطی.png"));
@@ -256,7 +358,7 @@ void TwoPlayerScreen::whoStart(){
     }    for(auto &x: client->playerClient.get_cards()){
        ShowCards(x);
     }
-    GameRound1client();
+    GameRound1client(1,1);
 }
 void TwoPlayerScreen::whoStartServer(){
 
@@ -273,7 +375,7 @@ void TwoPlayerScreen::whoStartServer(){
         for(auto &x: clientServer->playerClient.get_cards()){
             ShowCards(x);
         }
-   GameRound1server();
+   GameRound1server(1,1);
 }
 void TwoPlayerScreen::ShowCards(int type, int n,QString name){
     if(type==1){

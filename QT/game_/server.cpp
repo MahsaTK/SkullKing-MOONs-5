@@ -15,10 +15,12 @@ Server::Server(QWidget *parent) :
         qDebug()<<"listening";
         connect(myServer,SIGNAL(newConnection()),this,SLOT(newConnectionsSlot()));
     }
+    predict=-1;
+    type=-1;
 
 }
 void Server::readingData(){
-
+while(AllCLients.back()->socket->bytesAvailable()){
     QByteArray byteArray=AllCLients.back()->socket->readLine();
     char* Read= byteArray.data();
     QString temp=QString::fromUtf8(byteArray);
@@ -32,6 +34,7 @@ void Server::readingData(){
     }
     if(Read[0]=='p'){
         current.addPredict(2,Read[1]-'0',Read[2]-'0');
+        predict=Read[2]-'0';
         return;
     }
     if(Read[0]=='!'){
@@ -40,6 +43,7 @@ void Server::readingData(){
             number=Read[3]-'0';
         }
     }
+  }
 }
 
 void Server::newConnectionsSlot()
@@ -83,7 +87,7 @@ void Server::distributeCards(){
     }
     toWrite.push_back('\n');
     QByteArray byteArray(toWrite.c_str(), static_cast<int>(toWrite.length()));  // cast std::string to QByteArray using constructor
-    AllCLients.back()->socket->write(byteArray);;
-    AllCLients.back()->socket->waitForBytesWritten(-1);
+    AllCLients.at(1)->socket->write(byteArray);;
+    AllCLients.at(1)->socket->waitForBytesWritten(-1);
     qDebug()<<"All Cards send"<<"\n";
 }

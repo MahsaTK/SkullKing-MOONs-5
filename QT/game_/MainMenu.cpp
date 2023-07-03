@@ -36,7 +36,8 @@ void MainMenu::on_ClientBtn_clicked()
     bool ok1;
     QString IP = QInputDialog::getText(this, tr("Client"), tr("IP of server:"), QLineEdit::Normal, "", &ok1);
     if (ok1 && !IP.isEmpty()){
-        Client* client=new Client(player,QHostAddress(IP));
+       Client* client=new Client(player,QHostAddress(IP));
+//      Client* client=new Client(player,QHostAddress::LocalHost);
         TwoPlayerScreen * twoPlayerC=new TwoPlayerScreen(client);
         this->close();
         twoPlayerC->show();
@@ -96,7 +97,6 @@ void MainMenu::on_ServerBtn_clicked()
                     QApplication::processEvents();
                     progressDialog->setValue(100);
                     QApplication::processEvents();
-                    QThread::msleep(3000);
                     progressDialog->close();
                     TwoPlayerScreen* twoPlayerS=new TwoPlayerScreen(playerServer,clientServer);
                     this->close();

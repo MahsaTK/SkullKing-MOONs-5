@@ -26,6 +26,7 @@ public:
     int type;
     int number;
     GameInfo current;
+    int predict;
 public slots:
     void newConnectionsSlot();
     void readingData();

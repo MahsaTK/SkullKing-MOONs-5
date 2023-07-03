@@ -8,6 +8,8 @@ Client::Client(Player p,QHostAddress Ip,QWidget *parent) :
     playerClient=p;
     round=1;
     IP=Ip;
+    predict=-1;
+    type=-1;
     ui->setupUi(this);
     ClientSocket=new QTcpSocket();
     ClientSocket->connectToHost(IP,1025);
@@ -20,12 +22,15 @@ Client::Client(Player p,QHostAddress Ip,QWidget *parent) :
 }
 void Client::readingData(){
 
-    {
+    {     while(ClientSocket->bytesAvailable()){
         QByteArray byteArray=ClientSocket->readLine();
         char* Read= byteArray.data();
        // cast QByteArray to char*
+        QString qstr = QString::fromUtf8(Read, std::strlen(Read));
+       qDebug()<< qstr ;
         if(Read[0]=='p'){
             playerClient.current_game.addPredict(1,Read[1]-'0',Read[2]-'0');
+            predict=Read[2]-'0';
             return;
         }
         if(Read[0]=='$'){
@@ -98,6 +103,7 @@ void Client::readingData(){
             if(type<5){
                 number=Read[3]-'0';
             }
+        }
         }
     }
 //    ClientSocket->write("Done");

@@ -25,6 +25,8 @@ public:
      int parrotServer;
      int type;
      int number;
+     int predict;
+
 public slots:
     void readingData();
     void writingData();
