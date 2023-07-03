@@ -18,8 +18,6 @@ protected:
     int result2[7];
     int character1[3]; // in order from left to right Queen King Pirot
     int character2[3];
-    int points1;
-    int points2;
 public:
     int* get_predict1(){
         int * r=predict1;
@@ -45,6 +43,8 @@ public:
         int * r=predict1;
         return r;
     }
+    int points1;
+    int points2;
     GameInfo(GameInfo &copy){
         for(int i=0 ;i!=7;i++){
             predict1[i]=copy.predict1[i];

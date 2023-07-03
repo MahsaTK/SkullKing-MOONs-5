@@ -2,7 +2,7 @@
 #define TWOPLAYERSCREEN_H
 #include "Client.h"
 #include "Player.h"
-#include "server.h"
+#include "Server.h"
 #include <QMainWindow>
 #include <QListWidget>
 namespace Ui {
