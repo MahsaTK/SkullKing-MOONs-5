@@ -2,7 +2,7 @@
 #include "MainMenu.h"
 #include "ui_MainMenu.h"
 #include "Client.h"
-#include <server.h>
+#include <Server.h>
 #include <QInputDialog>
 #include <QDialog>
 #include <QMessageBox>
@@ -117,6 +117,7 @@ void MainMenu::on_ServerBtn_clicked()
 
 void MainMenu::on_logOutBtn_clicked()
 {
+    WRITE_FILE(players);
     this->close();
     MainWindow *logout=new MainWindow();
     logout->show();

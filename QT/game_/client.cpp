@@ -2,7 +2,7 @@
 #include "ui_client.h"
 #include <functions.h>
 //Player
-Client::Client(Player p,QHostAddress Ip,QWidget *parent) :
+Client::Client(Player &p, QHostAddress Ip, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Client)
 {

@@ -14,7 +14,7 @@ class Client : public QWidget
     Q_OBJECT
 
 public:
-    explicit Client(Player,QHostAddress ,QWidget *parent = nullptr);
+    explicit Client(Player&,QHostAddress ,QWidget *parent = nullptr);
     ~Client();
      QTcpSocket * ClientSocket;
      QHostAddress IP;

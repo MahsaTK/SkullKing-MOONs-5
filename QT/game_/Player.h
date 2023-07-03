@@ -70,6 +70,9 @@ public:
     void set_cards(Card * card){
         cards.push_front(card);
     }
+    void clearCards(){
+        cards.clear();
+    }
     list <Card*>& get_cards(){
 
         return cards;
