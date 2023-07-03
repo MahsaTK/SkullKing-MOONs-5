@@ -17,40 +17,72 @@
    <property name="enabled">
     <bool>true</bool>
    </property>
-   <widget class="QWidget" name="layoutWidget">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>120</y>
-      <width>91</width>
-      <height>204</height>
+      <x>332</x>
+      <y>132</y>
+      <width>82</width>
+      <height>214</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
-       <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+       <item>
+        <widget class="QLabel" name="names">
+         <property name="maximumSize">
+          <size>
+           <width>78</width>
+           <height>16</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="coins">
+         <property name="maximumSize">
+          <size>
+           <width>78</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QLabel" name="start">
+         <property name="maximumSize">
+          <size>
+           <width>78</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="text">
           <string>Start</string>
          </property>
         </widget>
        </item>
-       <item>
-        <widget class="QPushButton" name="ServerBtn">
-         <property name="text">
-          <string>Server</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="ClientBtn">
-         <property name="text">
-          <string>Client</string>
-         </property>
-        </widget>
-       </item>
       </layout>
+     </item>
+     <item>
+      <widget class="QPushButton" name="ServerBtn">
+       <property name="text">
+        <string>Server</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="ClientBtn">
+       <property name="text">
+        <string>Client</string>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QPushButton" name="changeInfo">
@@ -75,6 +107,8 @@
      </item>
     </layout>
    </widget>
+   <zorder>layoutWidget</zorder>
+   <zorder>names</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

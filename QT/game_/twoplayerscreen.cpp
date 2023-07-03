@@ -180,7 +180,7 @@ TwoPlayerScreen::TwoPlayerScreen(Server *ser, Client *cl,QWidget *parent) :
 //    }
 //    server->writingData();
 
-   //    clientServer->playerClient->decreaseCoin(50);
+       clientServer->playerClient.decreaseCoins(50);
     server->write=1;
     server->writingData();
 
@@ -341,7 +341,7 @@ TwoPlayerScreen::TwoPlayerScreen(Client *cl,QWidget *parent) :
 //        ShowCards(x);
 //    }
 
-    //        client->playerClient->decreaseCoin(50);
+            client->playerClient.decreaseCoins(50);
 }
 void TwoPlayerScreen::whoStart(){
     if(client->parrotServer>client->parrotClient){
@@ -355,7 +355,8 @@ void TwoPlayerScreen::whoStart(){
     ui->playGround->clear();
     while (client->playerClient.get_cards().size()<=0) {
         qDebug()<<"wait for cards";
-    }    for(auto &x: client->playerClient.get_cards()){
+    }
+    for(auto &x: client->playerClient.get_cards()){
        ShowCards(x);
     }
     GameRound1client(1,1);

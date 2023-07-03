@@ -86,6 +86,7 @@ public:
     }
     string get_pass(){return password;}
     string get_username(){return username;}
+    int get_coins(){return coins;}
     void set_last_name(string n){
         last_name=n;
     }
@@ -104,7 +105,12 @@ public:
     void set_password(string n){
         password=n;
     }
-
+    void decreaseCoins(int c){
+        coins-=c;
+    }
+    void increaseCoins(int c){
+        coins+=c;
+    }
 };
 
 extern vector<Player> players;

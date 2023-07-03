@@ -158,6 +158,7 @@ void MainWindow::on_signUpOk_clicked()
         newPlayer.set_phone_number(signUpPhone_numberEdit->text().toStdString());
         newPlayer.set_password(signUpPassEdit->text().toStdString());
         newPlayer.set_name(signUpNameEdit->text().toStdString());
+        newPlayer.increaseCoins(1000);
         READ_FILE(players);
         players.push_back(newPlayer);
         start_game(newPlayer); 

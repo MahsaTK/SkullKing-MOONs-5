@@ -15,5 +15,6 @@ QTextStream& operator<<(QTextStream &out,GameInfo& g);
 QTextStream& operator>>(QTextStream &in,GameInfo& g);
 void READ_FILE(vector<Player> &);
 void WRITE_FILE(vector<Player>&);
+vector<string> splitLines(const string& input);
 
 #endif 

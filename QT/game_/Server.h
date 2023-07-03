@@ -20,6 +20,7 @@ public:
     Player temp;
     void distributeCards();
     void writingData();
+    void disconnectedFromServer();
     int write;
     int parrotServer;
     int parrotClient;

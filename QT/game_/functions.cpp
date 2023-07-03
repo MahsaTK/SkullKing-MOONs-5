@@ -87,3 +87,20 @@ void WRITE_FILE(vector<Player> &users){
     }
     file.close();
 }
+vector<string> splitLines(const string& input)
+{
+    vector<std::string> lines;
+    string line;
+    for (const auto& c : input) {
+        if (c == '\n') {
+            lines.push_back(line);
+            line.clear();
+        } else {
+            line += c;
+        }
+    }
+    if (!line.empty()) {
+        lines.push_back(line);
+    }
+    return lines;
+}

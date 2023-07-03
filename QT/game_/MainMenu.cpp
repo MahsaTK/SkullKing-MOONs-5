@@ -19,12 +19,17 @@ MainMenu::MainMenu(Player c,QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainMenu)
 {
-    QWidget::setWindowTitle("Skull King");
+    player=c;
+    setWindowTitle("Skull King");
     setWindowIcon(QIcon(":/img/img/نام بازی.png"));
     ui->setupUi(this);
     this->setFixedSize(350,500);
-    setCentralWidget(ui->layoutWidget);
-    player=c;
+    ui->names->setText(QString::fromStdString(player.get_username()));
+    ui->coins->setText(QString::number(player.get_coins()));
+    QWidget* w=new QWidget();
+    w->setLayout(ui->verticalLayout_2);
+    ui->verticalLayout->setAlignment(Qt::AlignCenter);
+    setCentralWidget(w);
 }
 MainMenu::~MainMenu()
 {

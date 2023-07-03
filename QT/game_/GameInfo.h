@@ -56,7 +56,6 @@ public:
             character2[i] =copy.character2[i] ;
         }
     }
-
     GameInfo()
     {
         for(int i=0 ;i!=7;i++){
@@ -104,6 +103,11 @@ public:
             character2[character]++;
         }
     }
+//    int countPoints(){
+//        for(int i=0;i<7;i++){
+//            if(predict1[i]==result1[i])
+//        }
+//    }
 };
 
 class ThreePlayer : public GameInfo
