@@ -18,6 +18,8 @@ protected:
     int result2[7];
     int character1[3]; // in order from left to right Queen King Pirot
     int character2[3];
+    int points1;
+    int points2;
 public:
     int* get_predict1(){
         int * r=predict1;
@@ -55,6 +57,8 @@ public:
             character1[i] = copy.character1[i];
             character2[i] =copy.character2[i] ;
         }
+        points1=copy.points1;
+        points2=copy.points2;
     }
     GameInfo()
     {
@@ -69,6 +73,8 @@ public:
             character1[i] = 0;
             character2[i] = 0;
         }
+        points1=0;
+        points2=0;
     }
     virtual void addPredict(int player, int round, int predict )
     {
@@ -103,11 +109,40 @@ public:
             character2[character]++;
         }
     }
-//    int countPoints(){
-//        for(int i=0;i<7;i++){
-//            if(predict1[i]==result1[i])
-//        }
-//    }
+    int countPoints() //returns 1 if the first player wins and vice versa
+    {
+        for(int i=0;i<7;i++){
+            if(predict1[i]!=0){
+                if(predict1[i]==result1[i])
+                    points1+=result1[i]*10;
+                else points1-=abs(predict1[i]-result1[i])*10;
+            }
+            else{
+                if(predict1[i]==result1[i])
+                    points1+=(i+1)*10;
+                else points1-=(i+1)*10;
+            }
+            if(predict2[i]!=0){
+                if(predict2[i]==result2[i])
+                    points2+=result2[i]*10;
+                else points2-=abs(predict2[i]-result2[i])*10;
+            }
+            else{
+                if(predict2[i]==result2[i])
+                    points2+=(i+1)*10;
+                else points2-=(i+1)*10;
+            }
+        }
+        points1+=character1[0]*20;
+        points1+=character1[1]*15;
+        points1+=character1[2]*10;
+        points2+=character2[0]*20;
+        points2+=character2[1]*15;
+        points2+=character2[2]*10;
+        if(points1>points2)
+            return 1;
+        else return 2;
+    }
 };
 
 class ThreePlayer : public GameInfo
